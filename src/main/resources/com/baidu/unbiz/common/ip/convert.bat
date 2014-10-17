@@ -1,0 +1,1 @@
+native2ascii -encoding gb2312 colleage_config2.properties colleage_config_zh.properties
