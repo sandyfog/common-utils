@@ -12,6 +12,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface Keyable<T> {
 
-	public T getId();
+    public T getId();
 
 }

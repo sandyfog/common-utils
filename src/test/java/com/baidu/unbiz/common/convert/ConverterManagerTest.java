@@ -15,12 +15,11 @@ import com.baidu.unbiz.common.convert.object.FileConverter;
  */
 public class ConverterManagerTest {
 
-	@Test
-	public void testRegistration() {
-		FileConverter fileTypeConverter = (FileConverter) ConverterManager
-				.lookup(File.class);
+    @Test
+    public void testRegistration() {
+        FileConverter fileTypeConverter = (FileConverter) ConverterManager.lookup(File.class);
 
-		assertNotNull(fileTypeConverter);
+        assertNotNull(fileTypeConverter);
 
-	}
+    }
 }

@@ -10,7 +10,7 @@ import java.util.UUID;
  */
 public interface Identifiable {
 
-	void setIdentification(UUID id);
+    void setIdentification(UUID id);
 
-	UUID getIdentification();
+    UUID getIdentification();
 }

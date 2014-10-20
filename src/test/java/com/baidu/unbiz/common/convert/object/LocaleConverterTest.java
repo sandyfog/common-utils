@@ -16,17 +16,15 @@ import org.junit.Test;
  */
 public class LocaleConverterTest {
 
-	@Test
-	public void toConvert() {
-		LocaleConverter localeConverter = new LocaleConverter();
+    @Test
+    public void toConvert() {
+        LocaleConverter localeConverter = new LocaleConverter();
 
-		assertEquals(new Locale("en"), localeConverter.toConvert("en"));
-		assertEquals(new Locale("en", "US"), localeConverter.toConvert("en_US"));
-		assertEquals(new Locale("en", "US", "win"),
-				localeConverter.toConvert("en_US_win"));
+        assertEquals(new Locale("en"), localeConverter.toConvert("en"));
+        assertEquals(new Locale("en", "US"), localeConverter.toConvert("en_US"));
+        assertEquals(new Locale("en", "US", "win"), localeConverter.toConvert("en_US_win"));
 
-		assertEquals(new Locale("en"),
-				localeConverter.toConvert(new Locale("en")));
+        assertEquals(new Locale("en"), localeConverter.toConvert(new Locale("en")));
 
-	}
+    }
 }

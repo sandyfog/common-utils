@@ -18,59 +18,59 @@ import java.io.OutputStream;
  * @version create on 2014年7月21日 上午2:03:48
  */
 public class ByteArray {
-	private final byte[] bytes;
-	private final int offset;
-	private final int length;
+    private final byte[] bytes;
+    private final int offset;
+    private final int length;
 
-	public ByteArray(byte[] bytes) {
-		this(bytes, 0, Integer.MIN_VALUE);
-	}
+    public ByteArray(byte[] bytes) {
+        this(bytes, 0, Integer.MIN_VALUE);
+    }
 
-	public ByteArray(byte[] bytes, int offset, int length) {
-		assertNotNull(bytes, "bytes");
-		assertTrue(offset >= 0, "offset", offset);
+    public ByteArray(byte[] bytes, int offset, int length) {
+        assertNotNull(bytes, "bytes");
+        assertTrue(offset >= 0, "offset", offset);
 
-		if (length == Integer.MIN_VALUE) {
-			length = bytes.length - offset;
-		}
+        if (length == Integer.MIN_VALUE) {
+            length = bytes.length - offset;
+        }
 
-		assertTrue(length >= 0 && length <= bytes.length - offset, "length");
+        assertTrue(length >= 0 && length <= bytes.length - offset, "length");
 
-		this.bytes = bytes;
-		this.offset = offset;
-		this.length = length;
-	}
+        this.bytes = bytes;
+        this.offset = offset;
+        this.length = length;
+    }
 
-	public byte[] getRawBytes() {
-		return bytes;
-	}
+    public byte[] getRawBytes() {
+        return bytes;
+    }
 
-	public int getOffset() {
-		return offset;
-	}
+    public int getOffset() {
+        return offset;
+    }
 
-	public int getLength() {
-		return length;
-	}
+    public int getLength() {
+        return length;
+    }
 
-	public byte[] toByteArray() {
-		byte[] copy = new byte[length];
+    public byte[] toByteArray() {
+        byte[] copy = new byte[length];
 
-		System.arraycopy(bytes, offset, copy, 0, length);
+        System.arraycopy(bytes, offset, copy, 0, length);
 
-		return copy;
-	}
+        return copy;
+    }
 
-	public InputStream toInputStream() {
-		return new ByteArrayInputStream(bytes, offset, length);
-	}
+    public InputStream toInputStream() {
+        return new ByteArrayInputStream(bytes, offset, length);
+    }
 
-	public void writeTo(OutputStream out) throws IOException {
-		out.write(bytes, offset, length);
-	}
+    public void writeTo(OutputStream out) throws IOException {
+        out.write(bytes, offset, length);
+    }
 
-	@Override
-	public String toString() {
-		return "byte[" + length + "]";
-	}
+    @Override
+    public String toString() {
+        return "byte[" + length + "]";
+    }
 }

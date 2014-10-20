@@ -21,53 +21,51 @@ import com.baidu.unbiz.common.sample.AnnotationClass;
  */
 public class FieldCacheTest {
 
-	private FieldCache cache;
+    private FieldCache cache;
 
-	private int fieldSize;
+    private int fieldSize;
 
-	private int instanceFieldSize;
+    private int instanceFieldSize;
 
-	@Before
-	public void setUp() throws Exception {
-		cache = FieldCache.getInstance();
-	}
+    @Before
+    public void setUp() throws Exception {
+        cache = FieldCache.getInstance();
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		cache = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        cache = null;
+    }
 
-	@Test
-	public void getFields() {
-		Field[] result = cache.getFields(String.class);
-		Field[] fields = ReflectionUtil.getAllFieldsOfClass(String.class);
+    @Test
+    public void getFields() {
+        Field[] result = cache.getFields(String.class);
+        Field[] fields = ReflectionUtil.getAllFieldsOfClass(String.class);
 
-		assertArrayEquals(result, fields);
-		fieldSize = result.length;
+        assertArrayEquals(result, fields);
+        fieldSize = result.length;
 
-		result = cache.getFields(AnnotationClass.class,
-				AnnotationClass.Test.class);
-		fields = ReflectionUtil.getAnnotationFields(AnnotationClass.class,
-				AnnotationClass.Test.class);
+        result = cache.getFields(AnnotationClass.class, AnnotationClass.Test.class);
+        fields = ReflectionUtil.getAnnotationFields(AnnotationClass.class, AnnotationClass.Test.class);
 
-		assertArrayEquals(result, fields);
-	}
+        assertArrayEquals(result, fields);
+    }
 
-	@Test
-	public void getInstanceFields() {
-		Field[] result = cache.getInstanceFields(String.class);
-		Field[] fields = ReflectionUtil.getAllInstanceFields(String.class);
+    @Test
+    public void getInstanceFields() {
+        Field[] result = cache.getInstanceFields(String.class);
+        Field[] fields = ReflectionUtil.getAllInstanceFields(String.class);
 
-		assertArrayEquals(result, fields);
-		instanceFieldSize = result.length;
+        assertArrayEquals(result, fields);
+        instanceFieldSize = result.length;
 
-		result = cache.getInstanceFields(AnnotationClass.class);
-		fields = ReflectionUtil.getAllInstanceFields(AnnotationClass.class);
-		assertArrayEquals(result, fields);
-		getFields();
-		assertTrue(fieldSize > 0);
-		assertTrue(instanceFieldSize > 0);
-		assertTrue(fieldSize > instanceFieldSize);
-	}
+        result = cache.getInstanceFields(AnnotationClass.class);
+        fields = ReflectionUtil.getAllInstanceFields(AnnotationClass.class);
+        assertArrayEquals(result, fields);
+        getFields();
+        assertTrue(fieldSize > 0);
+        assertTrue(instanceFieldSize > 0);
+        assertTrue(fieldSize > instanceFieldSize);
+    }
 
 }

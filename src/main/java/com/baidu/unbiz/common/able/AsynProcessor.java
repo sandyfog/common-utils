@@ -9,8 +9,8 @@ package com.baidu.unbiz.common.able;
  */
 public interface AsynProcessor<P, R> {
 
-	void process(P processing);
+    void process(P processing);
 
-	R get();
+    R get();
 
 }

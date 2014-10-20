@@ -9,8 +9,8 @@ package com.baidu.unbiz.common.groundwork;
  */
 public interface Disposable {
 
-	public void dispose();
+    public void dispose();
 
-	public boolean isDisposed();
+    public boolean isDisposed();
 
 }

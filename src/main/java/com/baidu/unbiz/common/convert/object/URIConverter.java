@@ -16,48 +16,48 @@ import com.baidu.unbiz.common.convert.TypeConverter;
  */
 public class URIConverter extends ObjectConverter<URI> implements TypeConverter<URI> {
 
-	public URIConverter() {
-		register(URI.class);
-	}
+    public URIConverter() {
+        register(URI.class);
+    }
 
-	@Override
-	public URI toConvert(String value) {
-		return convert(value);
-	}
+    @Override
+    public URI toConvert(String value) {
+        return convert(value);
+    }
 
-	@Override
-	public String fromConvert(URI value) {
-		return String.valueOf(value);
-	}
+    @Override
+    public String fromConvert(URI value) {
+        return String.valueOf(value);
+    }
 
-	public URI toConvert(Object value) {
-		if (value instanceof URI) {
-			return (URI) value;
-		}
+    public URI toConvert(Object value) {
+        if (value instanceof URI) {
+            return (URI) value;
+        }
 
-		if (value instanceof File) {
-			File file = (File) value;
-			return file.toURI();
-		}
+        if (value instanceof File) {
+            File file = (File) value;
+            return file.toURI();
+        }
 
-		if (value instanceof URL) {
-			URL url = (URL) value;
-			try {
-				return url.toURI();
-			} catch (URISyntaxException e) {
-				throw new ConvertException(value, e);
-			}
-		}
+        if (value instanceof URL) {
+            URL url = (URL) value;
+            try {
+                return url.toURI();
+            } catch (URISyntaxException e) {
+                throw new ConvertException(value, e);
+            }
+        }
 
-		return convert(value.toString());
-	}
+        return convert(value.toString());
+    }
 
-	private URI convert(String value) {
-		try {
-			return new URI(value);
-		} catch (URISyntaxException e) {
-			throw new ConvertException(value, e);
-		}
-	}
+    private URI convert(String value) {
+        try {
+            return new URI(value);
+        } catch (URISyntaxException e) {
+            throw new ConvertException(value, e);
+        }
+    }
 
 }

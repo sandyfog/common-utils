@@ -10,7 +10,7 @@ import com.baidu.unbiz.common.date.DatetimeObject;
  */
 public interface Formatter {
 
-	String convert(DatetimeObject datetime, String format);
+    String convert(DatetimeObject datetime, String format);
 
-	DateTimeStamp parse(String value, String format);
+    DateTimeStamp parse(String value, String format);
 }

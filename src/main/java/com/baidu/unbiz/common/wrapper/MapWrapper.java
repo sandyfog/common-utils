@@ -13,33 +13,33 @@ import com.baidu.unbiz.common.CollectionUtil;
  */
 public class MapWrapper<K, V> {
 
-	private Map<K, V> map;
+    private Map<K, V> map;
 
-	public MapWrapper() {
-		map = CollectionUtil.createHashMap();
-	}
+    public MapWrapper() {
+        map = CollectionUtil.createHashMap();
+    }
 
-	public MapWrapper(Map<K, V> map) {
-		this.map = map;
-	}
+    public MapWrapper(Map<K, V> map) {
+        this.map = map;
+    }
 
-	public MapWrapper<K, V> set(K key, V value) {
-		map.put(key, value);
-		return this;
-	}
+    public MapWrapper<K, V> set(K key, V value) {
+        map.put(key, value);
+        return this;
+    }
 
-	public MapWrapper<K, V> remove(K key) {
-		map.remove(key);
-		return this;
-	}
+    public MapWrapper<K, V> remove(K key) {
+        map.remove(key);
+        return this;
+    }
 
-	public MapWrapper<K, V> clear() {
-		map.clear();
-		return this;
-	}
+    public MapWrapper<K, V> clear() {
+        map.clear();
+        return this;
+    }
 
-	public Map<K, V> getMap() {
-		return map;
-	}
+    public Map<K, V> getMap() {
+        return map;
+    }
 
 }

@@ -23,37 +23,37 @@ import com.baidu.unbiz.common.collection.Stack;
  */
 public class DivideThousand implements AccessStrategy {
 
-	private static final int BASE = 1000;
+    private static final int BASE = 1000;
 
-	private int base = BASE;
+    private int base = BASE;
 
-	public DivideThousand() {
+    public DivideThousand() {
 
-	}
+    }
 
-	public DivideThousand(int base) {
-		this.base = base;
-	}
+    public DivideThousand(int base) {
+        this.base = base;
+    }
 
-	@Override
-	public String find(long id) {
-		Stack<Long> stack = new Stack<Long>();
+    @Override
+    public String find(long id) {
+        Stack<Long> stack = new Stack<Long>();
 
-		for (; id * base >= base; id = id / base) {
-			stack.push(id);
-		}
+        for (; id * base >= base; id = id / base) {
+            stack.push(id);
+        }
 
-		StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
 
-		for (; !stack.isEmpty();) {
-			builder.append(stack.pop()).append(File.separator);
-		}
+        for (; !stack.isEmpty();) {
+            builder.append(stack.pop()).append(File.separator);
+        }
 
-		builder.setLength(builder.length() - 1);
-		return builder.toString();
-	}
+        builder.setLength(builder.length() - 1);
+        return builder.toString();
+    }
 
-	public void setBase(int base) {
-		this.base = base;
-	}
+    public void setBase(int base) {
+        this.base = base;
+    }
 }

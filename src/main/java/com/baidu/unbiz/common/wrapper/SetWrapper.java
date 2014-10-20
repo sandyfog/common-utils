@@ -13,38 +13,38 @@ import com.baidu.unbiz.common.CollectionUtil;
  */
 public class SetWrapper<T> {
 
-	private Set<T> set;
+    private Set<T> set;
 
-	public SetWrapper() {
-		set = CollectionUtil.createHashSet();
-	}
+    public SetWrapper() {
+        set = CollectionUtil.createHashSet();
+    }
 
-	public SetWrapper(Set<T> set) {
-		this.set = set;
-	}
+    public SetWrapper(Set<T> set) {
+        this.set = set;
+    }
 
-	public SetWrapper<T> set(T value) {
-		set.add(value);
-		return this;
-	}
+    public SetWrapper<T> set(T value) {
+        set.add(value);
+        return this;
+    }
 
-	public SetWrapper<T> remove(T value) {
-		set.remove(value);
-		return this;
-	}
+    public SetWrapper<T> remove(T value) {
+        set.remove(value);
+        return this;
+    }
 
-	public SetWrapper<T> remove(int index) {
-		set.remove(index);
-		return this;
-	}
+    public SetWrapper<T> remove(int index) {
+        set.remove(index);
+        return this;
+    }
 
-	public SetWrapper<T> clear() {
-		set.clear();
-		return this;
-	}
+    public SetWrapper<T> clear() {
+        set.clear();
+        return this;
+    }
 
-	public Set<T> getList() {
-		return set;
-	}
+    public Set<T> getList() {
+        return set;
+    }
 
 }

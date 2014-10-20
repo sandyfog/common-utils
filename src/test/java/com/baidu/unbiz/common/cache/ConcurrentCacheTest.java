@@ -21,68 +21,68 @@ import com.baidu.unbiz.common.logger.LoggerFactory;
  */
 public class ConcurrentCacheTest {
 
-	private ConcurrentCache<String, Object> cache;
+    private ConcurrentCache<String, Object> cache;
 
-	@Before
-	public void setUp() throws Exception {
-		cache = new ConcurrentCache<String, Object>();
-	}
+    @Before
+    public void setUp() throws Exception {
+        cache = new ConcurrentCache<String, Object>();
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		cache = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        cache = null;
+    }
 
-	@Test
-	public void testString() {
-		final String key = "baidu_beidou";
+    @Test
+    public void testString() {
+        final String key = "baidu_beidou";
 
-		Object result = cache.get(key, new Callable<Object>() {
+        Object result = cache.get(key, new Callable<Object>() {
 
-			@Override
-			public Object call() throws Exception {
-				return StringUtil.toCamelCase(key);
-			}
-		});
+            @Override
+            public Object call() throws Exception {
+                return StringUtil.toCamelCase(key);
+            }
+        });
 
-		assertEquals("baiduBeidou", result);
-	}
+        assertEquals("baiduBeidou", result);
+    }
 
-	@Test
-	public void testObject() {
-		final String key = "object";
+    @Test
+    public void testObject() {
+        final String key = "object";
 
-		Object result1 = cache.get(key, new Callable<Object>() {
+        Object result1 = cache.get(key, new Callable<Object>() {
 
-			@Override
-			public Object call() throws Exception {
-				return new Object();
-			}
-		});
+            @Override
+            public Object call() throws Exception {
+                return new Object();
+            }
+        });
 
-		Object result2 = cache.get(key, new Callable<Object>() {
+        Object result2 = cache.get(key, new Callable<Object>() {
 
-			@Override
-			public Object call() throws Exception {
-				return new Object();
-			}
-		});
+            @Override
+            public Object call() throws Exception {
+                return new Object();
+            }
+        });
 
-		assertEquals(result1, result2);
-	}
+        assertEquals(result1, result2);
+    }
 
-	@Test
-	public void testLogger() {
-		Object result = cache.get("logger", new Callable<Object>() {
+    @Test
+    public void testLogger() {
+        Object result = cache.get("logger", new Callable<Object>() {
 
-			@Override
-			public Object call() throws Exception {
-				return LoggerFactory.getLogger(ConcurrentCacheTest.class);
-			}
-		});
+            @Override
+            public Object call() throws Exception {
+                return LoggerFactory.getLogger(ConcurrentCacheTest.class);
+            }
+        });
 
-		assertEquals(LoggerFactory.getLogger(ConcurrentCacheTest.class), result);
-		assertTrue(LoggerFactory.getLogger(ConcurrentCacheTest.class) == result);
-	}
+        assertEquals(LoggerFactory.getLogger(ConcurrentCacheTest.class), result);
+        assertTrue(LoggerFactory.getLogger(ConcurrentCacheTest.class) == result);
+    }
 
 }

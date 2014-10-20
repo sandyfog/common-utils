@@ -10,32 +10,31 @@ import com.baidu.unbiz.common.apache.ToStringStyle;
  */
 public class LineEntity {
 
-	private String line;
-	private boolean isFinished;
+    private String line;
+    private boolean isFinished;
 
-	public String getLine() {
-		return line;
-	}
+    public String getLine() {
+        return line;
+    }
 
-	public void setLine(String line) {
-		this.line = line;
-	}
+    public void setLine(String line) {
+        this.line = line;
+    }
 
-	public boolean isFinished() {
-		return isFinished;
-	}
+    public boolean isFinished() {
+        return isFinished;
+    }
 
-	public void setFinished(boolean isFinished) {
-		this.isFinished = isFinished;
-	}
+    public void setFinished(boolean isFinished) {
+        this.isFinished = isFinished;
+    }
 
-	public byte[] getBytes() {
-		return (line + "\n").getBytes();
-	}
+    public byte[] getBytes() {
+        return (line + "\n").getBytes();
+    }
 
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.SHORT_PREFIX_STYLE);
-	}
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 
 }

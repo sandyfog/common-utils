@@ -10,6 +10,6 @@ package com.baidu.unbiz.common.logger;
  */
 public interface LoggerProvider {
 
-	Logger getLogger();
+    Logger getLogger();
 
 }

@@ -14,25 +14,20 @@ import org.junit.Test;
  */
 public class IntegerConverterTest {
 
-	@Test
-	public void toConvert() {
-		IntegerConverter integerConverter = new IntegerConverter();
+    @Test
+    public void toConvert() {
+        IntegerConverter integerConverter = new IntegerConverter();
 
-		assertEquals(Integer.valueOf(1),
-				integerConverter.toConvert(Integer.valueOf(1)));
-		assertEquals(Integer.valueOf(1),
-				integerConverter.toConvert(Short.valueOf((short) 1)));
-		assertEquals(Integer.valueOf(1),
-				integerConverter.toConvert(Double.valueOf(1.0D)));
-		assertEquals(Integer.valueOf(1), integerConverter.toConvert("1"));
-		assertEquals(Integer.valueOf(1), integerConverter.toConvert(" 1 "));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert(Integer.valueOf(1)));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert(Short.valueOf((short) 1)));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert(Double.valueOf(1.0D)));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert("1"));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert(" 1 "));
 
-		assertEquals(Integer.valueOf(1), integerConverter.toConvert(" +1 "));
-		assertEquals(Integer.valueOf(-1), integerConverter.toConvert(" -1 "));
-		assertEquals(Integer.valueOf(2147483647),
-				integerConverter.toConvert(" +2147483647 "));
-		assertEquals(Integer.valueOf(-2147483648),
-				integerConverter.toConvert(" -2147483648 "));
+        assertEquals(Integer.valueOf(1), integerConverter.toConvert(" +1 "));
+        assertEquals(Integer.valueOf(-1), integerConverter.toConvert(" -1 "));
+        assertEquals(Integer.valueOf(2147483647), integerConverter.toConvert(" +2147483647 "));
+        assertEquals(Integer.valueOf(-2147483648), integerConverter.toConvert(" -2147483648 "));
 
-	}
+    }
 }

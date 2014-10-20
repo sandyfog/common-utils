@@ -11,5 +11,5 @@ package com.baidu.unbiz.common.able;
  * @param <T>
  */
 public interface Valuable<T> {
-	T value();
+    T value();
 }

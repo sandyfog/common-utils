@@ -8,5 +8,5 @@ package com.baidu.unbiz.common.sample;
  * @version create on 2014年7月21日 上午3:43:36
  */
 public class MyService {
-	
+
 }

@@ -13,43 +13,43 @@ import com.baidu.unbiz.common.CollectionUtil;
  */
 public class ListWrapper<T> {
 
-	private List<T> list;
+    private List<T> list;
 
-	public ListWrapper() {
-		list = CollectionUtil.createArrayList();
-	}
+    public ListWrapper() {
+        list = CollectionUtil.createArrayList();
+    }
 
-	public ListWrapper(List<T> list) {
-		this.list = list;
-	}
+    public ListWrapper(List<T> list) {
+        this.list = list;
+    }
 
-	public ListWrapper<T> set(T value) {
-		list.add(value);
-		return this;
-	}
+    public ListWrapper<T> set(T value) {
+        list.add(value);
+        return this;
+    }
 
-	public ListWrapper<T> set(T value, int index) {
-		list.add(index, value);
-		return this;
-	}
+    public ListWrapper<T> set(T value, int index) {
+        list.add(index, value);
+        return this;
+    }
 
-	public ListWrapper<T> remove(T value) {
-		list.remove(value);
-		return this;
-	}
+    public ListWrapper<T> remove(T value) {
+        list.remove(value);
+        return this;
+    }
 
-	public ListWrapper<T> remove(int index) {
-		list.remove(index);
-		return this;
-	}
+    public ListWrapper<T> remove(int index) {
+        list.remove(index);
+        return this;
+    }
 
-	public ListWrapper<T> clear() {
-		list.clear();
-		return this;
-	}
+    public ListWrapper<T> clear() {
+        list.clear();
+        return this;
+    }
 
-	public List<T> getList() {
-		return list;
-	}
+    public List<T> getList() {
+        return list;
+    }
 
 }

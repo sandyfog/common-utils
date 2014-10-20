@@ -15,14 +15,14 @@ import com.baidu.unbiz.common.access.AccessStrategy;
  */
 public class DivideThousandTest {
 
-	@Test
-	public void find() {
-		AccessStrategy strategy = new DivideThousand();
-		String where = strategy.find(1234567890);
-		assertEquals("1\\1234\\1234567\\1234567890", where);
+    @Test
+    public void find() {
+        AccessStrategy strategy = new DivideThousand();
+        String where = strategy.find(1234567890);
+        assertEquals("1\\1234\\1234567\\1234567890", where);
 
-		where = strategy.find(123456789);
-		assertEquals("123\\123456\\123456789", where);
-	}
+        where = strategy.find(123456789);
+        assertEquals("123\\123456\\123456789", where);
+    }
 
 }

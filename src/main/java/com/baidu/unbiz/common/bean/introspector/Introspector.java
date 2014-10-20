@@ -10,10 +10,10 @@ package com.baidu.unbiz.common.bean.introspector;
  */
 public interface Introspector {
 
-	ClassDescriptor lookup(Class<?> type);
+    ClassDescriptor lookup(Class<?> type);
 
-	ClassDescriptor register(Class<?> type);
+    ClassDescriptor register(Class<?> type);
 
-	void reset();
+    void reset();
 
 }

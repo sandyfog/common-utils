@@ -25,155 +25,136 @@ import com.baidu.unbiz.common.ClassUtil;
  */
 public final class FileChannelUtil {
 
-	private FileChannelUtil() {
+    private FileChannelUtil() {
 
-	}
+    }
 
-	private static void copy(ReadableByteChannel srcChannel,
-			WritableByteChannel destChannel) throws IOException {
-		if (ClassUtil.isInstance(FileChannel.class, srcChannel)) {
-			FileChannel channel = (FileChannel) srcChannel;
+    private static void copy(ReadableByteChannel srcChannel, WritableByteChannel destChannel) throws IOException {
+        if (ClassUtil.isInstance(FileChannel.class, srcChannel)) {
+            FileChannel channel = (FileChannel) srcChannel;
 
-			channel.transferTo(0, channel.size(), destChannel);
-		} else if (ClassUtil.isInstance(FileChannel.class, destChannel)) {
-			FileChannel channel = (FileChannel) destChannel;
+            channel.transferTo(0, channel.size(), destChannel);
+        } else if (ClassUtil.isInstance(FileChannel.class, destChannel)) {
+            FileChannel channel = (FileChannel) destChannel;
 
-			channel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
-		} else {
-			throw new IOException("file Channel not support");
-		}
-	}
+            channel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
+        } else {
+            throw new IOException("file Channel not support");
+        }
+    }
 
-	public static void copy(InputStream input, OutputStream output)
-			throws IOException {
-		ReadableByteChannel srcChannel = Channels.newChannel(input);
+    public static void copy(InputStream input, OutputStream output) throws IOException {
+        ReadableByteChannel srcChannel = Channels.newChannel(input);
 
-		WritableByteChannel destChannel = Channels.newChannel(output);
+        WritableByteChannel destChannel = Channels.newChannel(output);
 
-		copy(srcChannel, destChannel);
+        copy(srcChannel, destChannel);
 
-	}
+    }
 
-	public static void copyAndClose(InputStream input, OutputStream output)
-			throws IOException {
-		ReadableByteChannel srcChannel = Channels.newChannel(input);
+    public static void copyAndClose(InputStream input, OutputStream output) throws IOException {
+        ReadableByteChannel srcChannel = Channels.newChannel(input);
 
-		WritableByteChannel destChannel = Channels.newChannel(output);
-		try {
-			copy(srcChannel, destChannel);
-		}
+        WritableByteChannel destChannel = Channels.newChannel(output);
+        try {
+            copy(srcChannel, destChannel);
+        }
 
-		finally {
-			srcChannel.close();
-			destChannel.close();
-		}
+        finally {
+            srcChannel.close();
+            destChannel.close();
+        }
 
-	}
+    }
 
-	public static void copy(String src, String dest) throws IOException {
-		FileChannel srcChannel = (FileChannel) Channels
-				.newChannel(new FileInputStream(src));
+    public static void copy(String src, String dest) throws IOException {
+        FileChannel srcChannel = (FileChannel) Channels.newChannel(new FileInputStream(src));
 
-		WritableByteChannel destChannel = Channels
-				.newChannel(new FileOutputStream(dest));
+        WritableByteChannel destChannel = Channels.newChannel(new FileOutputStream(dest));
 
-		srcChannel.transferTo(0, srcChannel.size(), destChannel);
-	}
+        srcChannel.transferTo(0, srcChannel.size(), destChannel);
+    }
 
-	public static void copyAndClose(String src, String dest) throws IOException {
-		FileChannel srcChannel = (FileChannel) Channels
-				.newChannel(new FileInputStream(src));
+    public static void copyAndClose(String src, String dest) throws IOException {
+        FileChannel srcChannel = (FileChannel) Channels.newChannel(new FileInputStream(src));
 
-		WritableByteChannel destChannel = Channels
-				.newChannel(new FileOutputStream(dest));
-		try {
-			srcChannel.transferTo(0, srcChannel.size(), destChannel);
-		} finally {
-			destChannel.close();
-			srcChannel.close();
-		}
+        WritableByteChannel destChannel = Channels.newChannel(new FileOutputStream(dest));
+        try {
+            srcChannel.transferTo(0, srcChannel.size(), destChannel);
+        } finally {
+            destChannel.close();
+            srcChannel.close();
+        }
 
-	}
+    }
 
-	public static void copy(URL url, String dest) throws IOException {
+    public static void copy(URL url, String dest) throws IOException {
 
-		ReadableByteChannel srcChannel = Channels.newChannel(url.openStream());
+        ReadableByteChannel srcChannel = Channels.newChannel(url.openStream());
 
-		FileChannel destChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(dest));
+        FileChannel destChannel = (FileChannel) Channels.newChannel(new FileOutputStream(dest));
 
-		destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
-	}
+        destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
+    }
 
-	public static void copyAndClose(URL url, String dest) throws IOException {
+    public static void copyAndClose(URL url, String dest) throws IOException {
 
-		ReadableByteChannel srcChannel = Channels.newChannel(url.openStream());
+        ReadableByteChannel srcChannel = Channels.newChannel(url.openStream());
 
-		FileChannel destChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(dest));
-		try {
-			destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
-		} finally {
-			srcChannel.close();
-			destChannel.close();
-		}
+        FileChannel destChannel = (FileChannel) Channels.newChannel(new FileOutputStream(dest));
+        try {
+            destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
+        } finally {
+            srcChannel.close();
+            destChannel.close();
+        }
 
-	}
+    }
 
-	public static void copy(Socket socket, String dest) throws IOException {
+    public static void copy(Socket socket, String dest) throws IOException {
 
-		ReadableByteChannel srcChannel = Channels.newChannel(socket
-				.getInputStream());
+        ReadableByteChannel srcChannel = Channels.newChannel(socket.getInputStream());
 
-		FileChannel destChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(dest));
+        FileChannel destChannel = (FileChannel) Channels.newChannel(new FileOutputStream(dest));
 
-		destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
+        destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
 
-	}
+    }
 
-	public static void copyAndClose(Socket socket, String dest)
-			throws IOException {
+    public static void copyAndClose(Socket socket, String dest) throws IOException {
 
-		ReadableByteChannel srcChannel = Channels.newChannel(socket
-				.getInputStream());
+        ReadableByteChannel srcChannel = Channels.newChannel(socket.getInputStream());
 
-		FileChannel destChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(dest));
-		try {
-			destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
-		} finally {
-			srcChannel.close();
-			destChannel.close();
-		}
-	}
+        FileChannel destChannel = (FileChannel) Channels.newChannel(new FileOutputStream(dest));
+        try {
+            destChannel.transferFrom(srcChannel, 0, Long.MAX_VALUE);
+        } finally {
+            srcChannel.close();
+            destChannel.close();
+        }
+    }
 
-	public static void copy(String src, Socket socket) throws IOException {
+    public static void copy(String src, Socket socket) throws IOException {
 
-		FileChannel srcChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(src));
+        FileChannel srcChannel = (FileChannel) Channels.newChannel(new FileOutputStream(src));
 
-		WritableByteChannel destChannel = Channels.newChannel(socket
-				.getOutputStream());
+        WritableByteChannel destChannel = Channels.newChannel(socket.getOutputStream());
 
-		srcChannel.transferTo(0, srcChannel.size(), destChannel);
-	}
+        srcChannel.transferTo(0, srcChannel.size(), destChannel);
+    }
 
-	public static void copyAndClose(String src, Socket socket)
-			throws IOException {
+    public static void copyAndClose(String src, Socket socket) throws IOException {
 
-		FileChannel srcChannel = (FileChannel) Channels
-				.newChannel(new FileOutputStream(src));
+        FileChannel srcChannel = (FileChannel) Channels.newChannel(new FileOutputStream(src));
 
-		WritableByteChannel destChannel = Channels.newChannel(socket
-				.getOutputStream());
-		try {
-			srcChannel.transferTo(0, srcChannel.size(), destChannel);
-		} finally {
-			srcChannel.close();
-			destChannel.close();
-		}
+        WritableByteChannel destChannel = Channels.newChannel(socket.getOutputStream());
+        try {
+            srcChannel.transferTo(0, srcChannel.size(), destChannel);
+        } finally {
+            srcChannel.close();
+            destChannel.close();
+        }
 
-	}
+    }
 
 }

@@ -20,65 +20,57 @@ import com.baidu.unbiz.common.io.StreamUtil;
  */
 public abstract class ChannelUtil {
 
-	private static final int BUFFER_SIZE = 16384;
+    private static final int BUFFER_SIZE = 16384;
 
-	public static void copy(InputStream input, OutputStream output)
-			throws IOException {
-		ReadableByteChannel srcChannel = Channels.newChannel(input);
+    public static void copy(InputStream input, OutputStream output) throws IOException {
+        ReadableByteChannel srcChannel = Channels.newChannel(input);
 
-		WritableByteChannel destChannel = Channels.newChannel(output);
+        WritableByteChannel destChannel = Channels.newChannel(output);
 
-		copy(srcChannel, destChannel);
+        copy(srcChannel, destChannel);
 
-	}
+    }
 
-	public static void copyAndClose(InputStream input, OutputStream output)
-			throws IOException {
-		ReadableByteChannel srcChannel = Channels.newChannel(input);
+    public static void copyAndClose(InputStream input, OutputStream output) throws IOException {
+        ReadableByteChannel srcChannel = Channels.newChannel(input);
 
-		WritableByteChannel destChannel = Channels.newChannel(output);
-		try {
-			copy(srcChannel, destChannel);
-		}
+        WritableByteChannel destChannel = Channels.newChannel(output);
+        try {
+            copy(srcChannel, destChannel);
+        }
 
-		finally {
-			destChannel.close();
-			srcChannel.close();
-		}
+        finally {
+            destChannel.close();
+            srcChannel.close();
+        }
 
-	}
+    }
 
-	private static void copy(ReadableByteChannel srcChannel,
-			WritableByteChannel destChannel) throws IOException {
-		InputStream inputStream = new NIOBufferedInputStream(srcChannel,
-				BUFFER_SIZE);
+    private static void copy(ReadableByteChannel srcChannel, WritableByteChannel destChannel) throws IOException {
+        InputStream inputStream = new NIOBufferedInputStream(srcChannel, BUFFER_SIZE);
 
-		OutputStream outputStream = new NIOOutputStream(destChannel,
-				BUFFER_SIZE);
+        OutputStream outputStream = new NIOOutputStream(destChannel, BUFFER_SIZE);
 
-		StreamUtil.io(inputStream, outputStream);
-	}
+        StreamUtil.io(inputStream, outputStream);
+    }
 
-	public static void copy2NioOut(InputStream inputStream,
-			OutputStream outputStream) throws IOException {
+    public static void copy2NioOut(InputStream inputStream, OutputStream outputStream) throws IOException {
 
-		WritableByteChannel destChannel = Channels.newChannel(outputStream);
-		OutputStream output = new NIOOutputStream(destChannel,
-				BUFFER_SIZE);
+        WritableByteChannel destChannel = Channels.newChannel(outputStream);
+        OutputStream output = new NIOOutputStream(destChannel, BUFFER_SIZE);
 
-		StreamUtil.io(inputStream, output);
-	}
+        StreamUtil.io(inputStream, output);
+    }
 
-	public static void copy2NioOutAndClose(InputStream inputStream,
-			OutputStream outputStream) throws IOException {
+    public static void copy2NioOutAndClose(InputStream inputStream, OutputStream outputStream) throws IOException {
 
-		try {
-			copy2NioOut(inputStream, outputStream);
-		}
+        try {
+            copy2NioOut(inputStream, outputStream);
+        }
 
-		finally {
-			outputStream.close();
-			inputStream.close();
-		}
-	}
+        finally {
+            outputStream.close();
+            inputStream.close();
+        }
+    }
 }

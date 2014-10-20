@@ -14,12 +14,12 @@ import com.baidu.unbiz.common.convert.object.URLConverter;
 
 public class URLConverterTest {
 
-	@Test
-	public void toConvert() {
-		URLConverter urlConverter = new URLConverter();
+    @Test
+    public void toConvert() {
+        URLConverter urlConverter = new URLConverter();
 
-		File f = new File("/folder/file.ext");
-		URL url = urlConverter.toConvert(f);
-		assertNotNull(url);
-	}
+        File f = new File("/folder/file.ext");
+        URL url = urlConverter.toConvert(f);
+        assertNotNull(url);
+    }
 }

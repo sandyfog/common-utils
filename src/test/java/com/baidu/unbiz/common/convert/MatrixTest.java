@@ -17,55 +17,54 @@ import org.junit.Test;
  */
 public class MatrixTest {
 
-	// private List<Integer> intsList(int... array) {
-	// ArrayList<Integer> list = new ArrayList<Integer>();
-	// for (int i : array) {
-	// list.add(Integer.valueOf(i));
-	// }
-	// return list;
-	// }
-	//
-	// @Test
-	// public void testIntMatrix2() {
-	// ArrayList<List<Integer>> matrix = new ArrayList<List<Integer>>();
-	//
-	// matrix.add(intsList(1, 2, 3));
-	// matrix.add(intsList(9, 8, 7));
-	//
-	// int[][] arr = ConverterManager.convertType(matrix, int[][].class);
-	//
-	// assertEquals(2, arr.length);
-	//
-	// assertArrayEquals(arri(1, 2, 3), arr[0]);
-	// assertArrayEquals(arri(9, 8, 7), arr[1]);
-	// }
+    // private List<Integer> intsList(int... array) {
+    // ArrayList<Integer> list = new ArrayList<Integer>();
+    // for (int i : array) {
+    // list.add(Integer.valueOf(i));
+    // }
+    // return list;
+    // }
+    //
+    // @Test
+    // public void testIntMatrix2() {
+    // ArrayList<List<Integer>> matrix = new ArrayList<List<Integer>>();
+    //
+    // matrix.add(intsList(1, 2, 3));
+    // matrix.add(intsList(9, 8, 7));
+    //
+    // int[][] arr = ConverterManager.convertType(matrix, int[][].class);
+    //
+    // assertEquals(2, arr.length);
+    //
+    // assertArrayEquals(arri(1, 2, 3), arr[0]);
+    // assertArrayEquals(arri(9, 8, 7), arr[1]);
+    // }
 
-	@Test
-	public void testStringToIntMatrix() {
-		String[][] strings = new String[][] { { "123", "865" },
-				{ "432", "345", "9832" } };
+    @Test
+    public void testStringToIntMatrix() {
+        String[][] strings = new String[][] { { "123", "865" }, { "432", "345", "9832" } };
 
-		int[][] arr = ConverterManager.convertType(strings, int[][].class);
+        int[][] arr = ConverterManager.convertType(strings, int[][].class);
 
-		assertEquals(2, arr.length);
+        assertEquals(2, arr.length);
 
-		assertArrayEquals(arri(123, 865), arr[0]);
-		assertArrayEquals(arri(432, 345, 9832), arr[1]);
-	}
+        assertArrayEquals(arri(123, 865), arr[0]);
+        assertArrayEquals(arri(432, 345, 9832), arr[1]);
+    }
 
-	@Test
-	public void testIntToStringMatrix() {
-		int[][] values = new int[][] { { 123, 865 }, { 432, 345, 9832 } };
+    @Test
+    public void testIntToStringMatrix() {
+        int[][] values = new int[][] { { 123, 865 }, { 432, 345, 9832 } };
 
-		String[][] arr = ConverterManager.convertType(values, String[][].class);
+        String[][] arr = ConverterManager.convertType(values, String[][].class);
 
-		assertEquals(2, arr.length);
+        assertEquals(2, arr.length);
 
-		assertEquals("123", arr[0][0]);
-		assertEquals("865", arr[0][1]);
+        assertEquals("123", arr[0][0]);
+        assertEquals("865", arr[0][1]);
 
-		assertEquals("432", arr[1][0]);
-		assertEquals("345", arr[1][1]);
-		assertEquals("9832", arr[1][2]);
-	}
+        assertEquals("432", arr[1][0]);
+        assertEquals("345", arr[1][1]);
+        assertEquals("9832", arr[1][2]);
+    }
 }

@@ -11,6 +11,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface Adaptable<O, N> {
 
-	N forNew(O old);
+    N forNew(O old);
 
 }

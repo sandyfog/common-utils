@@ -12,11 +12,10 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface Setter {
 
-	void invokeSetter(Object target, Object argument)
-			throws IllegalAccessException, InvocationTargetException;
+    void invokeSetter(Object target, Object argument) throws IllegalAccessException, InvocationTargetException;
 
-	Class<?> getSetterRawType();
+    Class<?> getSetterRawType();
 
-	Class<?> getSetterRawComponentType();
+    Class<?> getSetterRawComponentType();
 
 }

@@ -23,29 +23,29 @@ import com.baidu.unbiz.common.convert.ConverterManager;
  */
 public class FloatArrayConverterTest {
 
-	@Test
-	public void toConvert() {
-		FloatArrayConverter floatArrayConverter = (FloatArrayConverter) ConverterManager.lookup(float[].class);
+    @Test
+    public void toConvert() {
+        FloatArrayConverter floatArrayConverter = (FloatArrayConverter) ConverterManager.lookup(float[].class);
 
-		assertEq(arrf((float) 1.73), floatArrayConverter.toConvert(Float.valueOf((float) 1.73)));
-		assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrf((float) 1.73, (float) 10.22)));
-		assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrd(1.73, 10.22)));
-		assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrf(1.73f, 10.22f)));
-		assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arri(1, 7, 3)));
-		assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrl(1, 7, 3)));
-		assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrb(1, 7, 3)));
-		assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrs(1, 7, 3)));
-		assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrs("1.73", "10.22")));
-		assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrs(" 1.73 ", " 10.22 ")));
-		assertEq(arrf((float) 1.73, 10), floatArrayConverter.toConvert(arro("1.73", 10)));
-		assertEq(arrf((float) 1.73, 10), floatArrayConverter.toConvert("1.73 \n 10"));
-	}
+        assertEq(arrf((float) 1.73), floatArrayConverter.toConvert(Float.valueOf((float) 1.73)));
+        assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrf((float) 1.73, (float) 10.22)));
+        assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrd(1.73, 10.22)));
+        assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrf(1.73f, 10.22f)));
+        assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arri(1, 7, 3)));
+        assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrl(1, 7, 3)));
+        assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrb(1, 7, 3)));
+        assertEq(arrf((float) 1.0, (float) 7.0, (float) 3.0), floatArrayConverter.toConvert(arrs(1, 7, 3)));
+        assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrs("1.73", "10.22")));
+        assertEq(arrf((float) 1.73, (float) 10.22), floatArrayConverter.toConvert(arrs(" 1.73 ", " 10.22 ")));
+        assertEq(arrf((float) 1.73, 10), floatArrayConverter.toConvert(arro("1.73", 10)));
+        assertEq(arrf((float) 1.73, 10), floatArrayConverter.toConvert("1.73 \n 10"));
+    }
 
-	private void assertEq(float[] arr1, float[] arr2) {
-		assertEquals(arr1.length, arr2.length);
-		for (int i = 0; i < arr1.length; i++) {
-			assertEquals(arr1[i], arr2[i], 0.0001);
-		}
-	}
+    private void assertEq(float[] arr1, float[] arr2) {
+        assertEquals(arr1.length, arr2.length);
+        for (int i = 0; i < arr1.length; i++) {
+            assertEquals(arr1[i], arr2[i], 0.0001);
+        }
+    }
 
 }

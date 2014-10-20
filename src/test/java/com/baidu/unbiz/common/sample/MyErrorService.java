@@ -9,8 +9,8 @@ package com.baidu.unbiz.common.sample;
  */
 public class MyErrorService {
 
-	public MyErrorService() {
-		throw new UnsupportedOperationException();
-	}
+    public MyErrorService() {
+        throw new UnsupportedOperationException();
+    }
 
 }

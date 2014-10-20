@@ -9,6 +9,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface ClosureResult<T> extends Closure {
 
-	T getResult();
+    T getResult();
 
 }

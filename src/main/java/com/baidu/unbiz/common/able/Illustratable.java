@@ -11,6 +11,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface Illustratable {
 
-	String description();
+    String description();
 
 }

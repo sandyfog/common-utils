@@ -11,20 +11,18 @@ package com.baidu.unbiz.common.able;
  */
 public interface Broadcaster {
 
-	/**
-	 * 将消息对象广播给所有对等实体
-	 * 
-	 * @param bean
-	 *            消息对象
-	 */
-	void notifyAll(Object bean);
+    /**
+     * 将消息对象广播给所有对等实体
+     * 
+     * @param bean 消息对象
+     */
+    void notifyAll(Object bean);
 
-	/**
-	 * 将消息发送给任一对等实体
-	 * 
-	 * @param bean
-	 *            消息对象
-	 */
-	void notifyAny(Object bean);
+    /**
+     * 将消息发送给任一对等实体
+     * 
+     * @param bean 消息对象
+     */
+    void notifyAny(Object bean);
 
 }

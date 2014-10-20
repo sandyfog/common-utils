@@ -11,10 +11,10 @@ import java.util.Collection;
  */
 public interface Context<K, V> {
 
-	V get(K key);
+    V get(K key);
 
-	Context<K, V> set(K key, V value);
-	
-	Collection<V> values();
+    Context<K, V> set(K key, V value);
+
+    Collection<V> values();
 
 }

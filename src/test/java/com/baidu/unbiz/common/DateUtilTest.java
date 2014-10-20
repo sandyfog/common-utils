@@ -11,154 +11,154 @@ import org.junit.Test;
  */
 public class DateUtilTest {
 
-	@Test
-	public void getCurrentCalendar() {
+    @Test
+    public void getCurrentCalendar() {
 
-	}
+    }
 
-	@Test
-	public void getCurrentTimestamp() {
+    @Test
+    public void getCurrentTimestamp() {
 
-	}
+    }
 
-	@Test
-	public void getCurrentDatetime() {
+    @Test
+    public void getCurrentDatetime() {
 
-	}
+    }
 
-	@Test
-	public void currentDate() {
+    @Test
+    public void currentDate() {
 
-	}
+    }
 
-	@Test
-	public void getYear() {
+    @Test
+    public void getYear() {
 
-	}
+    }
 
-	@Test
-	public void getMonth() {
+    @Test
+    public void getMonth() {
 
-	}
+    }
 
-	@Test
-	public void getDay() {
+    @Test
+    public void getDay() {
 
-	}
+    }
 
-	@Test
-	public void getHour() {
+    @Test
+    public void getHour() {
 
-	}
+    }
 
-	@Test
-	public void getChinesePatternNow() {
+    @Test
+    public void getChinesePatternNow() {
 
-	}
+    }
 
-	@Test
-	public void getFullCNPatternNow() {
+    @Test
+    public void getFullCNPatternNow() {
 
-	}
+    }
 
-	@Test
-	public void formatDate() {
+    @Test
+    public void formatDate() {
 
-	}
+    }
 
-	@Test
-	public void parseDate() {
+    @Test
+    public void parseDate() {
 
-	}
+    }
 
-	@Test
-	public void addMonths() {
+    @Test
+    public void addMonths() {
 
-	}
+    }
 
-	@Test
-	public void addDays() {
+    @Test
+    public void addDays() {
 
-	}
+    }
 
-	@Test
-	public void addMins() {
+    @Test
+    public void addMins() {
 
-	}
+    }
 
-	@Test
-	public void compareDate() {
+    @Test
+    public void compareDate() {
 
-	}
+    }
 
-	@Test
-	public void isDateBetween() {
+    @Test
+    public void isDateBetween() {
 
-	}
+    }
 
-	@Test
-	public void isSameMonth() {
+    @Test
+    public void isSameMonth() {
 
-	}
+    }
 
-	@Test
-	public void isSameDay() {
+    @Test
+    public void isSameDay() {
 
-	}
+    }
 
-	@Test
-	public void getStartOfDate() {
+    @Test
+    public void getStartOfDate() {
 
-	}
+    }
 
-	@Test
-	public void getPreviousMonday() {
+    @Test
+    public void getPreviousMonday() {
 
-	}
+    }
 
-	@Test
-	public void getMondayBefore4Week() {
+    @Test
+    public void getMondayBefore4Week() {
 
-	}
+    }
 
-	@Test
-	public void getEndOfMonth() {
+    @Test
+    public void getEndOfMonth() {
 
-	}
+    }
 
-	@Test
-	public void getFirstOfMonth() {
+    @Test
+    public void getFirstOfMonth() {
 
-	}
+    }
 
-	@Test
-	public void inFormat() {
+    @Test
+    public void inFormat() {
 
-	}
+    }
 
-	@Test
-	public void getNumberOfSecondsBetween() {
+    @Test
+    public void getNumberOfSecondsBetween() {
 
-	}
+    }
 
-	@Test
-	public void getNumberOfMonthsBetween() {
+    @Test
+    public void getNumberOfMonthsBetween() {
 
-	}
+    }
 
-	@Test
-	public void getNumberOfMinuteBetween() {
+    @Test
+    public void getNumberOfMinuteBetween() {
 
-	}
+    }
 
-	@Test
-	public void getNumberOfHoursBetween() {
+    @Test
+    public void getNumberOfHoursBetween() {
 
-	}
+    }
 
-	@Test
-	public void getRemoteDate() {
+    @Test
+    public void getRemoteDate() {
 
-	}
+    }
 
 }

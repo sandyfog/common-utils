@@ -16,19 +16,14 @@ import org.junit.Test;
  */
 public class BigIntegerConverterTest {
 
-	@Test
-	public void toConvert() {
-		BigIntegerConverter bigIntegerConverter = new BigIntegerConverter();
+    @Test
+    public void toConvert() {
+        BigIntegerConverter bigIntegerConverter = new BigIntegerConverter();
 
-		assertEquals(new BigInteger("12345"),
-				bigIntegerConverter.toConvert(new BigInteger("12345")));
-		assertEquals(new BigInteger("12345"),
-				bigIntegerConverter.toConvert("12345"));
-		assertEquals(new BigInteger("12345"),
-				bigIntegerConverter.toConvert(" 12345 "));
-		assertEquals(new BigInteger("12345"),
-				bigIntegerConverter.toConvert(Double.valueOf(12345.0D)));
-		assertEquals(new BigInteger("123456789"),
-				bigIntegerConverter.toConvert(Long.valueOf(123456789)));
-	}
+        assertEquals(new BigInteger("12345"), bigIntegerConverter.toConvert(new BigInteger("12345")));
+        assertEquals(new BigInteger("12345"), bigIntegerConverter.toConvert("12345"));
+        assertEquals(new BigInteger("12345"), bigIntegerConverter.toConvert(" 12345 "));
+        assertEquals(new BigInteger("12345"), bigIntegerConverter.toConvert(Double.valueOf(12345.0D)));
+        assertEquals(new BigInteger("123456789"), bigIntegerConverter.toConvert(Long.valueOf(123456789)));
+    }
 }

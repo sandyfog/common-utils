@@ -11,51 +11,51 @@ import com.baidu.unbiz.common.bean.CopyField;
  */
 public class AnnoBean extends Overload {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 6746317807529284032L;
+    private static final long serialVersionUID = 6746317807529284032L;
 
-	@CopyField
-	private int test1;
-	@CopyField
-	private float test2;
+    @CopyField
+    private int test1;
+    @CopyField
+    private float test2;
 
-	private String test3;
-	
-	@CopyField
-	private String test4;
+    private String test3;
 
-	public int getTest1() {
-		return test1;
-	}
+    @CopyField
+    private String test4;
 
-	public void setTest1(int test1) {
-		this.test1 = test1;
-	}
+    public int getTest1() {
+        return test1;
+    }
 
-	public float getTest2() {
-		return test2;
-	}
+    public void setTest1(int test1) {
+        this.test1 = test1;
+    }
 
-	public void setTest2(float test2) {
-		this.test2 = test2;
-	}
+    public float getTest2() {
+        return test2;
+    }
 
-	public String getTest3() {
-		return test3;
-	}
+    public void setTest2(float test2) {
+        this.test2 = test2;
+    }
 
-	public void setTest3(String test3) {
-		this.test3 = test3;
-	}
+    public String getTest3() {
+        return test3;
+    }
 
-	public String getTest4() {
-		return test4;
-	}
+    public void setTest3(String test3) {
+        this.test3 = test3;
+    }
 
-	public void setTest4(String test4) {
-		this.test4 = test4;
-	}
+    public String getTest4() {
+        return test4;
+    }
+
+    public void setTest4(String test4) {
+        this.test4 = test4;
+    }
 
 }

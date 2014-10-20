@@ -11,8 +11,8 @@ import com.baidu.unbiz.common.able.Adaptable;
  */
 public class AdapterFactory<O, N> {
 
-	public static <O, N> N create(Adaptable<O, N> adaptable, O old) {
-		return adaptable.forNew(old);
-	}
+    public static <O, N> N create(Adaptable<O, N> adaptable, O old) {
+        return adaptable.forNew(old);
+    }
 
 }

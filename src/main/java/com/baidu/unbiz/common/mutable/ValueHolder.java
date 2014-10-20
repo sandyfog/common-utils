@@ -7,45 +7,45 @@ package com.baidu.unbiz.common.mutable;
  */
 public class ValueHolder<T> {
 
-	protected T value;
+    protected T value;
 
-	public ValueHolder() {
-	}
+    public ValueHolder() {
+    }
 
-	public ValueHolder(T value) {
-		this.value = value;
-	}
+    public ValueHolder(T value) {
+        this.value = value;
+    }
 
-	/**
-	 * Returns value.
-	 */
-	public T getValue() {
-		return value;
-	}
+    /**
+     * Returns value.
+     */
+    public T getValue() {
+        return value;
+    }
 
-	/**
-	 * Sets new value.
-	 */
-	public void setValue(T value) {
-		this.value = value;
-	}
+    /**
+     * Sets new value.
+     */
+    public void setValue(T value) {
+        this.value = value;
+    }
 
-	/**
-	 * Returns <code>true</code> if value is <code>null</code>.
-	 */
-	public boolean isNull() {
-		return value == null;
-	}
+    /**
+     * Returns <code>true</code> if value is <code>null</code>.
+     */
+    public boolean isNull() {
+        return value == null;
+    }
 
-	/**
-	 * Simple to-string representation.
-	 */
-	@Override
-	public String toString() {
-		if (value == null) {
-			return "{" + null + '}';
-		}
-		return '{' + value.toString() + '}';
-	}
+    /**
+     * Simple to-string representation.
+     */
+    @Override
+    public String toString() {
+        if (value == null) {
+            return "{" + null + '}';
+        }
+        return '{' + value.toString() + '}';
+    }
 
 }

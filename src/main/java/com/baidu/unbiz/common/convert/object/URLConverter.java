@@ -16,51 +16,51 @@ import com.baidu.unbiz.common.convert.TypeConverter;
  */
 public class URLConverter extends ObjectConverter<URL> implements TypeConverter<URL> {
 
-	public URLConverter() {
-		register(URL.class);
-	}
+    public URLConverter() {
+        register(URL.class);
+    }
 
-	@Override
-	public URL toConvert(String value) {
-		return convert(value);
-	}
+    @Override
+    public URL toConvert(String value) {
+        return convert(value);
+    }
 
-	@Override
-	public String fromConvert(URL value) {
-		return String.valueOf(value);
-	}
+    @Override
+    public String fromConvert(URL value) {
+        return String.valueOf(value);
+    }
 
-	public URL toConvert(Object value) {
-		if (value instanceof URL) {
-			return (URL) value;
-		}
+    public URL toConvert(Object value) {
+        if (value instanceof URL) {
+            return (URL) value;
+        }
 
-		if (value instanceof File) {
-			File file = (File) value;
-			try {
-				return file.toURI().toURL();
-			} catch (MalformedURLException e) {
-				throw new ConvertException(value, e);
-			}
-		}
+        if (value instanceof File) {
+            File file = (File) value;
+            try {
+                return file.toURI().toURL();
+            } catch (MalformedURLException e) {
+                throw new ConvertException(value, e);
+            }
+        }
 
-		if (value instanceof URI) {
-			URI uri = (URI) value;
-			try {
-				return uri.toURL();
-			} catch (MalformedURLException e) {
-				throw new ConvertException(value, e);
-			}
-		}
+        if (value instanceof URI) {
+            URI uri = (URI) value;
+            try {
+                return uri.toURL();
+            } catch (MalformedURLException e) {
+                throw new ConvertException(value, e);
+            }
+        }
 
-		return convert(value.toString());
-	}
+        return convert(value.toString());
+    }
 
-	private URL convert(String value) {
-		try {
-			return new URL(value);
-		} catch (MalformedURLException e) {
-			throw new ConvertException(value, e);
-		}
-	}
+    private URL convert(String value) {
+        try {
+            return new URL(value);
+        } catch (MalformedURLException e) {
+            throw new ConvertException(value, e);
+        }
+    }
 }

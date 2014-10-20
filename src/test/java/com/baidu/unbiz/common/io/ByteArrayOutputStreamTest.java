@@ -17,32 +17,32 @@ import com.baidu.unbiz.common.io.StreamUtil;
  * @version create on 2014年7月21日 上午8:36:10
  */
 public class ByteArrayOutputStreamTest {
-	private byte[] data = "0123456789".getBytes();
+    private byte[] data = "0123456789".getBytes();
 
-	@Test
-	public void toBytes() throws Exception {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    @Test
+    public void toBytes() throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-		baos.write(data);
+        baos.write(data);
 
-		assertArrayEquals(data, readStream(baos.toInputStream()));
-		assertArrayEquals(data, baos.toByteArray().toByteArray());
+        assertArrayEquals(data, readStream(baos.toInputStream()));
+        assertArrayEquals(data, baos.toByteArray().toByteArray());
 
-		StreamUtil.close(baos);
-	}
+        StreamUtil.close(baos);
+    }
 
-	private byte[] readStream(InputStream is) throws Exception {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		int i;
+    private byte[] readStream(InputStream is) throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int i;
 
-		while ((i = is.read()) >= 0) {
-			baos.write(i);
-		}
-		try {
-			return baos.toByteArray().toByteArray();
-		} finally {
-			StreamUtil.close(baos);
-		}
+        while ((i = is.read()) >= 0) {
+            baos.write(i);
+        }
+        try {
+            return baos.toByteArray().toByteArray();
+        } finally {
+            StreamUtil.close(baos);
+        }
 
-	}
+    }
 }

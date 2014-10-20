@@ -22,89 +22,84 @@ import com.baidu.unbiz.common.cache.ConcurrentCache;
  */
 public class ProcessedCache {
 
-	private Computable<Class<?>, List<FieldDesc>> fieldCache = new ConcurrentCache<Class<?>, List<FieldDesc>>();
+    private Computable<Class<?>, List<FieldDesc>> fieldCache = new ConcurrentCache<Class<?>, List<FieldDesc>>();
 
-	private Map<Class<?>, List<String>> titleCache = CollectionUtil
-			.createHashMap();
+    private Map<Class<?>, List<String>> titleCache = CollectionUtil.createHashMap();
 
-	private ProcessedCache() {
+    private ProcessedCache() {
 
-	}
+    }
 
-	public static final ProcessedCache getInstance() {
-		return Singleton.instance;
-	}
+    public static final ProcessedCache getInstance() {
+        return Singleton.instance;
+    }
 
-	/** 纯粹找个地方初始化 */
-	interface Singleton {
-		ProcessedCache instance = new ProcessedCache();
-	}
+    /** 纯粹找个地方初始化 */
+    interface Singleton {
+        ProcessedCache instance = new ProcessedCache();
+    }
 
-	public List<FieldDesc> getFieldDescs(final Class<?> clazz) {
-		return fieldCache.get(clazz, new Callable<List<FieldDesc>>() {
+    public List<FieldDesc> getFieldDescs(final Class<?> clazz) {
+        return fieldCache.get(clazz, new Callable<List<FieldDesc>>() {
 
-			@Override
-			public List<FieldDesc> call() throws Exception {
-				Field[] fields = ReflectionUtil.getAnnotationFields(clazz,
-						ProcessedField.class);
-				if (ArrayUtil.isEmpty(fields)) {
-					return null;
-				}
+            @Override
+            public List<FieldDesc> call() throws Exception {
+                Field[] fields = ReflectionUtil.getAnnotationFields(clazz, ProcessedField.class);
+                if (ArrayUtil.isEmpty(fields)) {
+                    return null;
+                }
 
-				List<FieldDesc> result = CollectionUtil
-						.createArrayList(fields.length);
-				for (Field field : fields) {
-					FieldDesc object = toFieldObject(field);
+                List<FieldDesc> result = CollectionUtil.createArrayList(fields.length);
+                for (Field field : fields) {
+                    FieldDesc object = toFieldObject(field);
 
-					result.add(object);
-				}
+                    result.add(object);
+                }
 
-				Collections.sort(result, FieldDesc.comparator);
+                Collections.sort(result, FieldDesc.comparator);
 
-				ProcessedType type = clazz.getAnnotation(ProcessedType.class);
-				if (type != null && type.title()) {
-					List<String> titles = getTitles(result);
-					titleCache.put(clazz, titles);
-				}
+                ProcessedType type = clazz.getAnnotation(ProcessedType.class);
+                if (type != null && type.title()) {
+                    List<String> titles = getTitles(result);
+                    titleCache.put(clazz, titles);
+                }
 
-				return result;
-			}
-		});
+                return result;
+            }
+        });
 
-	}
+    }
 
-	public List<String> getTitles(final Class<?> clazz) {
-		List<String> result = titleCache.get(clazz);
-		if (result != null) {
-			return result;
-		}
-		// 唤起阻塞
-		getFieldDescs(clazz);
-		return titleCache.get(clazz);
-	}
+    public List<String> getTitles(final Class<?> clazz) {
+        List<String> result = titleCache.get(clazz);
+        if (result != null) {
+            return result;
+        }
+        // 唤起阻塞
+        getFieldDescs(clazz);
+        return titleCache.get(clazz);
+    }
 
-	private static FieldDesc toFieldObject(Field field) {
-		ProcessedField convert = field.getAnnotation(ProcessedField.class);
+    private static FieldDesc toFieldObject(Field field) {
+        ProcessedField convert = field.getAnnotation(ProcessedField.class);
 
-		FieldDesc object = new FieldDesc();
+        FieldDesc object = new FieldDesc();
 
-		String title = convert.title();
-		object.order(convert.index()).title(
-				title.equals("") ? StringUtil.toLowerCaseWithUnderscores(title)
-						: title);
-		object.type(field.getType()).field(field);
+        String title = convert.title();
+        object.order(convert.index()).title(title.equals("") ? StringUtil.toLowerCaseWithUnderscores(title) : title);
+        object.type(field.getType()).field(field);
 
-		return object;
-	}
+        return object;
+    }
 
-	private List<String> getTitles(final List<FieldDesc> list) {
-		List<String> result = CollectionUtil.createArrayList();
+    private List<String> getTitles(final List<FieldDesc> list) {
+        List<String> result = CollectionUtil.createArrayList();
 
-		for (FieldDesc object : list) {
-			result.add(object.title());
-		}
+        for (FieldDesc object : list) {
+            result.add(object.title());
+        }
 
-		return result;
-	}
+        return result;
+    }
 
 }

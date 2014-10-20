@@ -12,15 +12,15 @@ import com.baidu.unbiz.common.EnumUtil;
  */
 public abstract class ProcessFactory {
 
-	public static FileProcessor create(FileType type) {
-		return type.createProcessor();
-	}
+    public static FileProcessor create(FileType type) {
+        return type.createProcessor();
+    }
 
-	public static FileProcessor create(String ext) {
-		FileType type = EnumUtil.parseName(FileType.class, ext.toUpperCase());
-		Assert.assertNotNull(type, "ext is illegal");
+    public static FileProcessor create(String ext) {
+        FileType type = EnumUtil.parseName(FileType.class, ext.toUpperCase());
+        Assert.assertNotNull(type, "ext is illegal");
 
-		return type.createProcessor();
-	}
+        return type.createProcessor();
+    }
 
 }

@@ -14,38 +14,38 @@ import java.lang.ref.SoftReference;
  */
 public class SoftThreadLocal<T> extends ThreadLocal<T> {
 
-	/**
-	 * 基于<code>SoftReference</code>的<code>ThreadLocal</cdoe>
-	 */
-	private final ThreadLocal<SoftReference<T>> local = new ThreadLocal<SoftReference<T>>();
+    /**
+     * 基于<code>SoftReference</code>的<code>ThreadLocal</cdoe>
+     */
+    private final ThreadLocal<SoftReference<T>> local = new ThreadLocal<SoftReference<T>>();
 
-	@Override
-	public T get() {
-		SoftReference<T> ref = local.get();
-		T result = null;
-		if (null != ref) {
-			result = ref.get();
-		}
-		if (null == result) {
-			result = initialValue();
-			ref = new SoftReference<T>(result);
-			local.set(ref);
-		}
-		return result;
-	}
+    @Override
+    public T get() {
+        SoftReference<T> ref = local.get();
+        T result = null;
+        if (null != ref) {
+            result = ref.get();
+        }
+        if (null == result) {
+            result = initialValue();
+            ref = new SoftReference<T>(result);
+            local.set(ref);
+        }
+        return result;
+    }
 
-	@Override
-	public void set(T value) {
-		if (null == value) {
-			remove();
-		} else {
-			local.set(new SoftReference<T>(value));
-		}
-	}
+    @Override
+    public void set(T value) {
+        if (null == value) {
+            remove();
+        } else {
+            local.set(new SoftReference<T>(value));
+        }
+    }
 
-	@Override
-	public void remove() {
-		local.remove();
-	}
+    @Override
+    public void remove() {
+        local.remove();
+    }
 
 }

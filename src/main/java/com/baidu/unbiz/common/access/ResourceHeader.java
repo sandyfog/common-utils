@@ -14,49 +14,46 @@ import java.util.Set;
  */
 public interface ResourceHeader {
 
-	/**
-	 * 获取编码方式
-	 * 
-	 * @return 编码方式
-	 */
-	String encode();
+    /**
+     * 获取编码方式
+     * 
+     * @return 编码方式
+     */
+    String encode();
 
-	/**
-	 * 可选的扩展名
-	 * 
-	 * @return 扩展名
-	 */
-	String ext();
+    /**
+     * 可选的扩展名
+     * 
+     * @return 扩展名
+     */
+    String ext();
 
-	/**
-	 * 获取属性
-	 * 
-	 * @param name
-	 *            属性名
-	 * @return 属性值
-	 */
-	String getAttribute(String name);
+    /**
+     * 获取属性
+     * 
+     * @param name 属性名
+     * @return 属性值
+     */
+    String getAttribute(String name);
 
-	/**
-	 * 设置属性
-	 * 
-	 * @param name
-	 *            属性名
-	 * @param value
-	 *            属性值
-	 * @return 自身，方便快速设置
-	 */
-	ResourceHeader setAttribute(String name, String value);
+    /**
+     * 设置属性
+     * 
+     * @param name 属性名
+     * @param value 属性值
+     * @return 自身，方便快速设置
+     */
+    ResourceHeader setAttribute(String name, String value);
 
-	/**
-	 * 获取可迭代的属性信息
-	 * 
-	 * @return 头文件信息
-	 */
-	Set<Map.Entry<String, String>> getInfo();
+    /**
+     * 获取可迭代的属性信息
+     * 
+     * @return 头文件信息
+     */
+    Set<Map.Entry<String, String>> getInfo();
 
-	ResourceHeader encode(String encode);
+    ResourceHeader encode(String encode);
 
-	ResourceHeader ext(String ext);
+    ResourceHeader ext(String ext);
 
 }

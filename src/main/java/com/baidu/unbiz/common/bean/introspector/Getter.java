@@ -12,13 +12,12 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface Getter {
 
-	Object invokeGetter(Object target) throws InvocationTargetException,
-			IllegalAccessException;
+    Object invokeGetter(Object target) throws InvocationTargetException, IllegalAccessException;
 
-	Class<?> getGetterRawType();
+    Class<?> getGetterRawType();
 
-	Class<?> getGetterRawComponentType();
+    Class<?> getGetterRawComponentType();
 
-	Class<?> getGetterRawKeyComponentType();
+    Class<?> getGetterRawKeyComponentType();
 
 }

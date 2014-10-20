@@ -20,15 +20,15 @@ import java.lang.annotation.Target;
 @Target({ ElementType.FIELD })
 public @interface ProcessedField {
 
-	/** 在文件列中的位置 */
-	int index();
+    /** 在文件列中的位置 */
+    int index();
 
-//	/** 转换后的类型 */
-//	Class<?> type() default String.class;
+    // /** 转换后的类型 */
+    // Class<?> type() default String.class;
 
-	// /** 转换后的格式 */
-	// String format() default "";
+    // /** 转换后的格式 */
+    // String format() default "";
 
-	/** 转换后的列名称 */
-	String title() default "";
+    /** 转换后的列名称 */
+    String title() default "";
 }

@@ -21,53 +21,53 @@ import com.baidu.unbiz.common.sample.AnnotationClass;
  */
 public class MethodCacheTest {
 
-	private MethodCache cache;
+    private MethodCache cache;
 
-	private int methodSize;
+    private int methodSize;
 
-	private int instanceMethodSize;
+    private int instanceMethodSize;
 
-	@Before
-	public void setUp() throws Exception {
-		cache = MethodCache.getInstance();
-	}
+    @Before
+    public void setUp() throws Exception {
+        cache = MethodCache.getInstance();
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		cache = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        cache = null;
+    }
 
-	@Test
-	public void getMethods() {
-		Method[] result = cache.getMethods(String.class);
-		Method[] methods = ReflectionUtil.getAllMethodsOfClass(String.class);
+    @Test
+    public void getMethods() {
+        Method[] result = cache.getMethods(String.class);
+        Method[] methods = ReflectionUtil.getAllMethodsOfClass(String.class);
 
-		assertArrayEquals(result, methods);
-		methodSize = result.length;
+        assertArrayEquals(result, methods);
+        methodSize = result.length;
 
-		result = cache.getMethods(AnnotationClass.class,
-				AnnotationClass.Test.class);
-		methods = ReflectionUtil.getAnnotationMethods(AnnotationClass.class,
-				AnnotationClass.Test.class).toArray(new Method[0]);
+        result = cache.getMethods(AnnotationClass.class, AnnotationClass.Test.class);
+        methods =
+                ReflectionUtil.getAnnotationMethods(AnnotationClass.class, AnnotationClass.Test.class).toArray(
+                        new Method[0]);
 
-		assertArrayEquals(result, methods);
-	}
+        assertArrayEquals(result, methods);
+    }
 
-	@Test
-	public void getInstanceMethods() {
-		Method[] result = cache.getInstanceMethods(String.class);
-		Method[] fields = ReflectionUtil.getAllInstanceMethods(String.class);
+    @Test
+    public void getInstanceMethods() {
+        Method[] result = cache.getInstanceMethods(String.class);
+        Method[] fields = ReflectionUtil.getAllInstanceMethods(String.class);
 
-		assertArrayEquals(result, fields);
-		instanceMethodSize = result.length;
+        assertArrayEquals(result, fields);
+        instanceMethodSize = result.length;
 
-		result = cache.getInstanceMethods(AnnotationClass.class);
-		fields = ReflectionUtil.getAllInstanceMethods(AnnotationClass.class);
-		assertArrayEquals(result, fields);
-		getMethods();
-		assertTrue(methodSize > 0);
-		assertTrue(instanceMethodSize > 0);
-		assertTrue(methodSize > instanceMethodSize);
-	}
+        result = cache.getInstanceMethods(AnnotationClass.class);
+        fields = ReflectionUtil.getAllInstanceMethods(AnnotationClass.class);
+        assertArrayEquals(result, fields);
+        getMethods();
+        assertTrue(methodSize > 0);
+        assertTrue(instanceMethodSize > 0);
+        assertTrue(methodSize > instanceMethodSize);
+    }
 
 }

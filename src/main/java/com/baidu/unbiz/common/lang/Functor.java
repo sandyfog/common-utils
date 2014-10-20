@@ -16,45 +16,42 @@ import com.baidu.unbiz.common.able.ClosureResult;
  */
 public class Functor implements ClosureResult<Object> {
 
-	private Object target;
-	private Method method;
+    private Object target;
+    private Method method;
 
-	private Class<?>[] parameterTypes;
+    private Class<?>[] parameterTypes;
 
-	private Object result;
+    private Object result;
 
-	public Functor(Object target, String methodName) {
-		this(target, methodName, Emptys.EMPTY_CLASS_ARRAY);
-	}
+    public Functor(Object target, String methodName) {
+        this(target, methodName, Emptys.EMPTY_CLASS_ARRAY);
+    }
 
-	public Functor(Object target, String methodName, Class<?>... parameterTypes) {
+    public Functor(Object target, String methodName, Class<?>...parameterTypes) {
 
-		Assert.assertNotNull(target, "target obejct is not null.");
+        Assert.assertNotNull(target, "target obejct is not null.");
 
-		this.target = target;
-		this.parameterTypes = parameterTypes;
-		method = ReflectionUtil.getMethod(target.getClass(), methodName,
-				this.parameterTypes);
+        this.target = target;
+        this.parameterTypes = parameterTypes;
+        method = ReflectionUtil.getMethod(target.getClass(), methodName, this.parameterTypes);
 
-		Assert.assertNotNull(method, "method [" + target.getClass() + "."
-				+ methodName + "] !NOT! exist.");
+        Assert.assertNotNull(method, "method [" + target.getClass() + "." + methodName + "] !NOT! exist.");
 
-	}
+    }
 
-	@Override
-	public void execute(Object... args) {
-		result = ReflectionUtil.invokeMethod(method, target, args);
-	}
+    @Override
+    public void execute(Object...args) {
+        result = ReflectionUtil.invokeMethod(method, target, args);
+    }
 
-	@Override
-	public String toString() {
-		return new StringBuilder().append(this.target).append(".")
-				.append(this.method.getName())
-				.append(ArrayUtil.toString(parameterTypes)).toString();
-	}
+    @Override
+    public String toString() {
+        return new StringBuilder().append(this.target).append(".").append(this.method.getName())
+                .append(ArrayUtil.toString(parameterTypes)).toString();
+    }
 
-	@Override
-	public Object getResult() {
-		return result;
-	}
+    @Override
+    public Object getResult() {
+        return result;
+    }
 }

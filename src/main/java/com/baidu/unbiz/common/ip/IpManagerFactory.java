@@ -9,12 +9,12 @@ package com.baidu.unbiz.common.ip;
  */
 public interface IpManagerFactory {
 
-	IpManager getDefaultIpManager();
+    IpManager getDefaultIpManager();
 
-	IpManager getDefaultIpManager(boolean asyn);
+    IpManager getDefaultIpManager(boolean asyn);
 
-	IpManager getIpManager(IpData ipdata);
+    IpManager getIpManager(IpData ipdata);
 
-	IpManager getIpManager(IpData ipdata, boolean asyn);
+    IpManager getIpManager(IpData ipdata, boolean asyn);
 
 }

@@ -13,9 +13,9 @@ import com.baidu.unbiz.common.access.AccessStrategy;
  */
 public class DirectStrategy implements AccessStrategy {
 
-	@Override
-	public String find(long id) {
-		return String.valueOf(id);
-	}
+    @Override
+    public String find(long id) {
+        return String.valueOf(id);
+    }
 
 }

@@ -2,12 +2,12 @@ package com.baidu.unbiz.common.bean.sample;
 
 public class Ac {
 
-	protected Ac() {
+    protected Ac() {
 
-	}
+    }
 
-	public Ac(Integer i) {
+    public Ac(Integer i) {
 
-	}
+    }
 
 }

@@ -20,6 +20,6 @@ import java.lang.annotation.Target;
 @Target({ ElementType.TYPE })
 public @interface ProcessedType {
 
-	boolean title() default true;
+    boolean title() default true;
 
 }

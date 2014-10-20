@@ -17,101 +17,100 @@ import static com.baidu.unbiz.common.StringPool.Symbol.NULL;
  * @version create on 2014年9月16日 下午4:10:13
  */
 public enum IpData implements IpLib {
-	YAHOO("yip.dat", COMMA, COMMA) {
-		@Override
-		public int lineItems() {
-			return 6;
-		}
+    YAHOO("yip.dat", COMMA, COMMA) {
+        @Override
+        public int lineItems() {
+            return 6;
+        }
 
-		@Override
-		public IpEntry create(String[] items) {
-			IpEntry entry = new IpEntry();
+        @Override
+        public IpEntry create(String[] items) {
+            IpEntry entry = new IpEntry();
 
-			entry.setCountry(getInfo(items[1]));
-			entry.setProvince(getInfo(items[2]));
-			entry.setCity(getInfo(items[3]));
+            entry.setCountry(getInfo(items[1]));
+            entry.setProvince(getInfo(items[2]));
+            entry.setCity(getInfo(items[3]));
 
-			// 拼接包含省市的地址
-			StringBuilder builder = new StringBuilder();
-			if (CHINA.equals(entry.getCountry())) {
-				if (!NULL.equals(entry.getProvince())) {
-					builder.append(entry.getProvince());
-				}
-				if (!NULL.equals(entry.getCity())) {
-					builder.append(entry.getCity());
-				}
-			}
-			if (items.length == 5) {
-				builder.append(getInfo(items[4]));
-			}
-			
-			entry.setAddress(builder.toString());
-			return entry;
-		}
-	},
-	CZ("czip.dat", DOLLARS, BACK_SLASH + DOLLARS) {
-		@Override
-		public int lineItems() {
-			return 3;
-		}
+            // 拼接包含省市的地址
+            StringBuilder builder = new StringBuilder();
+            if (CHINA.equals(entry.getCountry())) {
+                if (!NULL.equals(entry.getProvince())) {
+                    builder.append(entry.getProvince());
+                }
+                if (!NULL.equals(entry.getCity())) {
+                    builder.append(entry.getCity());
+                }
+            }
+            if (items.length == 5) {
+                builder.append(getInfo(items[4]));
+            }
 
-		@Override
-		public IpEntry create(String[] items) {
-			IpEntry entry = new IpEntry();
-			entry.setAddress(getInfo(items[1]));
+            entry.setAddress(builder.toString());
+            return entry;
+        }
+    },
+    CZ("czip.dat", DOLLARS, BACK_SLASH + DOLLARS) {
+        @Override
+        public int lineItems() {
+            return 3;
+        }
 
-			return entry;
-		}
-	};
+        @Override
+        public IpEntry create(String[] items) {
+            IpEntry entry = new IpEntry();
+            entry.setAddress(getInfo(items[1]));
 
-	private String dataFile;
+            return entry;
+        }
+    };
 
-	private String split;
+    private String dataFile;
 
-	private String splitRegex;
+    private String split;
 
-	IpData(String dataFile, String split, String splitRegex) {
-		this.dataFile = dataFile;
-		this.split = split;
-		this.splitRegex = splitRegex;
-	}
+    private String splitRegex;
 
-	public String getDataFile() {
-		return dataFile;
-	}
+    IpData(String dataFile, String split, String splitRegex) {
+        this.dataFile = dataFile;
+        this.split = split;
+        this.splitRegex = splitRegex;
+    }
 
-	public void setDataFile(String dataFile) {
-		this.dataFile = dataFile;
-	}
+    public String getDataFile() {
+        return dataFile;
+    }
 
-	public String getSplit() {
-		return split;
-	}
+    public void setDataFile(String dataFile) {
+        this.dataFile = dataFile;
+    }
 
-	public void setSplit(String split) {
-		this.split = split;
-	}
+    public String getSplit() {
+        return split;
+    }
 
-	public String getSplitRegex() {
-		return splitRegex;
-	}
+    public void setSplit(String split) {
+        this.split = split;
+    }
 
-	public void setSplitRegex(String splitRegex) {
-		this.splitRegex = splitRegex;
-	}
+    public String getSplitRegex() {
+        return splitRegex;
+    }
 
-	public abstract int lineItems();
+    public void setSplitRegex(String splitRegex) {
+        this.splitRegex = splitRegex;
+    }
 
-	public abstract IpEntry create(String[] items);
+    public abstract int lineItems();
 
-	private static String getInfo(String line) {
-		String ret = Emptys.EMPTY_STRING;
+    public abstract IpEntry create(String[] items);
 
-		if (StringUtil.isNotEmpty(line) && !NULL.equals(line)
-				&& !CZ88.equals(line)) {
-			ret = StringUtil.replace(line, CZ88, Emptys.EMPTY_STRING).trim();
-		}
+    private static String getInfo(String line) {
+        String ret = Emptys.EMPTY_STRING;
 
-		return ret;
-	}
+        if (StringUtil.isNotEmpty(line) && !NULL.equals(line) && !CZ88.equals(line)) {
+            ret = StringUtil.replace(line, CZ88, Emptys.EMPTY_STRING).trim();
+        }
+
+        return ret;
+    }
 }

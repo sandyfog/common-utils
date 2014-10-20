@@ -22,33 +22,22 @@ import com.baidu.unbiz.common.convert.ConverterManager;
  */
 public class StringArrayConverterTest {
 
-	@Test
-	public void toConvert() {
-		StringArrayConverter stringArrayConverter = (StringArrayConverter) ConverterManager
-				.lookup(String[].class);
+    @Test
+    public void toConvert() {
+        StringArrayConverter stringArrayConverter = (StringArrayConverter) ConverterManager.lookup(String[].class);
 
-		Assert.assertArrayEquals(arrs(Double.class.getName()),
-				stringArrayConverter.toConvert(Double.class));
-		Assert.assertArrayEquals(arrs("173"),
-				stringArrayConverter.toConvert("173"));
-		Assert.assertArrayEquals(arrs("173", "1022"),
-				stringArrayConverter.toConvert("173,1022"));
-		Assert.assertArrayEquals(arrs("173", " 1022"),
-				stringArrayConverter.toConvert("173, 1022"));
-		Assert.assertArrayEquals(arrs("173", "1022"),
-				stringArrayConverter.toConvert(arrs("173", "1022")));
-		Assert.assertArrayEquals(arrs("1", "7", "3"),
-				stringArrayConverter.toConvert(arri(1, 7, 3)));
-		Assert.assertArrayEquals(arrs("1", "7", "3"),
-				stringArrayConverter.toConvert(arrl(1, 7, 3)));
-		Assert.assertArrayEquals(arrs("1.0", "7.0", "3.0"),
-				stringArrayConverter.toConvert(arrd(1, 7, 3)));
-		Assert.assertArrayEquals(arrs("1.0", "7.0", "3.0"),
-				stringArrayConverter.toConvert(arrf(1, 7, 3)));
-		Assert.assertArrayEquals(arrs("173", "true"),
-				stringArrayConverter.toConvert(arro("173", Boolean.TRUE)));
-		Assert.assertArrayEquals(arrs("173", "java.lang.String"),
-				stringArrayConverter.toConvert(arro("173", String.class)));
-	}
+        Assert.assertArrayEquals(arrs(Double.class.getName()), stringArrayConverter.toConvert(Double.class));
+        Assert.assertArrayEquals(arrs("173"), stringArrayConverter.toConvert("173"));
+        Assert.assertArrayEquals(arrs("173", "1022"), stringArrayConverter.toConvert("173,1022"));
+        Assert.assertArrayEquals(arrs("173", " 1022"), stringArrayConverter.toConvert("173, 1022"));
+        Assert.assertArrayEquals(arrs("173", "1022"), stringArrayConverter.toConvert(arrs("173", "1022")));
+        Assert.assertArrayEquals(arrs("1", "7", "3"), stringArrayConverter.toConvert(arri(1, 7, 3)));
+        Assert.assertArrayEquals(arrs("1", "7", "3"), stringArrayConverter.toConvert(arrl(1, 7, 3)));
+        Assert.assertArrayEquals(arrs("1.0", "7.0", "3.0"), stringArrayConverter.toConvert(arrd(1, 7, 3)));
+        Assert.assertArrayEquals(arrs("1.0", "7.0", "3.0"), stringArrayConverter.toConvert(arrf(1, 7, 3)));
+        Assert.assertArrayEquals(arrs("173", "true"), stringArrayConverter.toConvert(arro("173", Boolean.TRUE)));
+        Assert.assertArrayEquals(arrs("173", "java.lang.String"),
+                stringArrayConverter.toConvert(arro("173", String.class)));
+    }
 
 }

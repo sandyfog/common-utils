@@ -17,55 +17,55 @@ import com.baidu.unbiz.common.logger.CachedLogger;
  */
 public class BeanCopyTest extends CachedLogger {
 
-	@Test
-	public void copyProperties() {
-		Abean bean = new Abean();
-		bean.setFooProp("ggg");
-		Abean acopied = new Abean();
-		BeanCopy.copyProperties(bean, acopied);
-		Assert.assertEquals("ggg", acopied.getFooProp());
+    @Test
+    public void copyProperties() {
+        Abean bean = new Abean();
+        bean.setFooProp("ggg");
+        Abean acopied = new Abean();
+        BeanCopy.copyProperties(bean, acopied);
+        Assert.assertEquals("ggg", acopied.getFooProp());
 
-		Cbean src = new Cbean();
-		src.setS2("11111");
-		src.setS3("aaaaa");
-		Cbean dest = new Cbean();
-		BeanCopy.copyProperties(src, dest);
-		Assert.assertEquals("aaaaa", dest.getS3());
-		logger.info(dest);
-	}
+        Cbean src = new Cbean();
+        src.setS2("11111");
+        src.setS3("aaaaa");
+        Cbean dest = new Cbean();
+        BeanCopy.copyProperties(src, dest);
+        Assert.assertEquals("aaaaa", dest.getS3());
+        logger.info(dest);
+    }
 
-	@Test
-	public void copyByMethod() {
-		Abean bean = new Abean();
-		bean.setFooProp("ggg");
-		Abean acopied = new Abean();
-		BeanCopy.copyByMethod(bean, acopied);
-		Assert.assertEquals("ggg", acopied.getFooProp());
+    @Test
+    public void copyByMethod() {
+        Abean bean = new Abean();
+        bean.setFooProp("ggg");
+        Abean acopied = new Abean();
+        BeanCopy.copyByMethod(bean, acopied);
+        Assert.assertEquals("ggg", acopied.getFooProp());
 
-		Cbean src = new Cbean();
-		src.setS2("11111");
-		src.setS3("aaaaa");
-		Cbean dest = new Cbean();
-		BeanCopy.copyByMethod(src, dest);
-		Assert.assertEquals("aaaaa", dest.getS3());
-		logger.info(dest);
+        Cbean src = new Cbean();
+        src.setS2("11111");
+        src.setS3("aaaaa");
+        Cbean dest = new Cbean();
+        BeanCopy.copyByMethod(src, dest);
+        Assert.assertEquals("aaaaa", dest.getS3());
+        logger.info(dest);
 
-	}
+    }
 
-	@Test
-	public void copyByAnnotation() {
-		AnnoBean bean = new AnnoBean();
-		bean.setCompany(new StringBuilder("comp"));
-		bean.setTest1(11);
-		bean.setTest2(22);
-		bean.setTest3("33");
-		bean.setTest4("44");
-		AnnoBean acopied = new AnnoBean();
-		BeanCopy.copyByAnnotation(bean, acopied);
-		Assert.assertNull(null, acopied.getTest3());
-		Assert.assertEquals("44", acopied.getTest4());
+    @Test
+    public void copyByAnnotation() {
+        AnnoBean bean = new AnnoBean();
+        bean.setCompany(new StringBuilder("comp"));
+        bean.setTest1(11);
+        bean.setTest2(22);
+        bean.setTest3("33");
+        bean.setTest4("44");
+        AnnoBean acopied = new AnnoBean();
+        BeanCopy.copyByAnnotation(bean, acopied);
+        Assert.assertNull(null, acopied.getTest3());
+        Assert.assertEquals("44", acopied.getTest4());
 
-		logger.info(acopied);
-	}
+        logger.info(acopied);
+    }
 
 }

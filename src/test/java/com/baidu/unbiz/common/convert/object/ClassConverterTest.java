@@ -14,14 +14,13 @@ import org.junit.Test;
  */
 public class ClassConverterTest {
 
-	@Test
-	public void toConvert() {
-		ClassConverter classConverter = new ClassConverter();
+    @Test
+    public void toConvert() {
+        ClassConverter classConverter = new ClassConverter();
 
-		assertEquals(String.class, classConverter.toConvert(String.class));
-		assertEquals(Integer.class,
-				classConverter.toConvert("java.lang.Integer"));
+        assertEquals(String.class, classConverter.toConvert(String.class));
+        assertEquals(Integer.class, classConverter.toConvert("java.lang.Integer"));
 
-	}
+    }
 
 }

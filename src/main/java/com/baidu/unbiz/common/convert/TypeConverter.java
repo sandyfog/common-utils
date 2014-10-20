@@ -15,17 +15,17 @@ import java.lang.annotation.Target;
  */
 public interface TypeConverter<T> {
 
-	T toConvert(String value);
+    T toConvert(String value);
 
-	String fromConvert(T value);
-	
-	T toConvert(Object value);
+    String fromConvert(T value);
 
-	@Inherited
-	@Retention(RetentionPolicy.RUNTIME)
-	@Target(ElementType.TYPE)
-	public @interface Convert {
+    T toConvert(Object value);
 
-	}
+    @Inherited
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
+    public @interface Convert {
+
+    }
 
 }

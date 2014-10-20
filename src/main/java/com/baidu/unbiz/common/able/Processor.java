@@ -10,6 +10,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface Processor<P, R> {
 
-	R processAndGet(P processing);
-	
+    R processAndGet(P processing);
+
 }

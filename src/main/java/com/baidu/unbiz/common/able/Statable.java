@@ -12,11 +12,11 @@ package com.baidu.unbiz.common.able;
  */
 public interface Statable {
 
-	/**
-	 * 统计结果
-	 * 
-	 * @return 总数
-	 */
-	int count();
+    /**
+     * 统计结果
+     * 
+     * @return 总数
+     */
+    int count();
 
 }

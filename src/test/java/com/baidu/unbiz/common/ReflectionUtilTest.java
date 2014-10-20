@@ -194,10 +194,10 @@ public class ReflectionUtilTest extends CachedLogger {
         assertNull(ReflectionUtil.getComponentType(f1.getGenericType()));
         assertEquals(Long.class, ReflectionUtil.getComponentType(f5.getGenericType()));
     }
-    
+
     @Test
     public void getGenericRecursion() throws Exception {
-        Class<?> clazz = ReflectionUtil.getGenericRecursion(ConcreteClass.class,String.class);
+        Class<?> clazz = ReflectionUtil.getGenericRecursion(ConcreteClass.class, String.class);
         System.out.println(clazz);
         Class<?>[] genericSupertypes = ReflectionUtil.getGenericSuperTypes(ConcreteClass.class);
         assertEquals(String.class, genericSupertypes[0]);

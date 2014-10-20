@@ -9,11 +9,11 @@ package com.baidu.unbiz.common.logger;
  */
 public class CachedLogger implements LoggerProvider {
 
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Override
-	public Logger getLogger() {
-		return logger;
-	}
+    @Override
+    public Logger getLogger() {
+        return logger;
+    }
 
 }

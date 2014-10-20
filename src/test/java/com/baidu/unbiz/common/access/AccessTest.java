@@ -26,74 +26,70 @@ import com.baidu.unbiz.common.io.StreamUtil;
  */
 public class AccessTest {
 
-	private Access access;
+    private Access access;
 
-	private int id;
+    private int id;
 
-	String log4j = ClassLoaderUtil.getClasspath() + File.separator
-			+ "log4j.properties";
+    String log4j = ClassLoaderUtil.getClasspath() + File.separator + "log4j.properties";
 
-	@Before
-	public void setUp() throws Exception {
-		access = new LocalFSAccess(new DivideThousand(),
-				ClassLoaderUtil.getClasspath());
+    @Before
+    public void setUp() throws Exception {
+        access = new LocalFSAccess(new DivideThousand(), ClassLoaderUtil.getClasspath());
 
-		id = 1234567890;
-	}
+        id = 1234567890;
+    }
 
-	@Test
-	public void store() {
+    @Test
+    public void store() {
 
-		File file = new File(log4j);
+        File file = new File(log4j);
 
-		try {
-			ByteArray byteArray = StreamUtil.readBytes(file, true);
-			Resource resource = new FileResource(id, byteArray);
-			resource.getHeader().ext("properties");
-			assertEquals(2256099345L, resource.checksum());
-			// 2256099345
-			access.store(resource);
-			byte[] raw = StreamUtil.readBytes(new File(log4j), true)
-					.getRawBytes();
-			assertArrayEquals(raw, resource.getBody().getRawBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        try {
+            ByteArray byteArray = StreamUtil.readBytes(file, true);
+            Resource resource = new FileResource(id, byteArray);
+            resource.getHeader().ext("properties");
+            assertEquals(2256099345L, resource.checksum());
+            // 2256099345
+            access.store(resource);
+            byte[] raw = StreamUtil.readBytes(new File(log4j), true).getRawBytes();
+            assertArrayEquals(raw, resource.getBody().getRawBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
-	@Test
-	public void retrieve() {
-		try {
-			Resource resource = access.retrieve(id, "properties");
-			byte[] raw = StreamUtil.readBytes(new File(log4j), true)
-					.getRawBytes();
+    @Test
+    public void retrieve() {
+        try {
+            Resource resource = access.retrieve(id, "properties");
+            byte[] raw = StreamUtil.readBytes(new File(log4j), true).getRawBytes();
 
-			assertArrayEquals(raw, resource.getBody().getRawBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            assertArrayEquals(raw, resource.getBody().getRawBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Test
-	public void remove() {
-		try {
-			assertTrue(access.remove(id, "properties"));
-		} catch (AccessException e) {
-			e.printStackTrace();
-		}
-	}
+    @Test
+    public void remove() {
+        try {
+            assertTrue(access.remove(id, "properties"));
+        } catch (AccessException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Test
-	public void name() {
+    @Test
+    public void name() {
 
-	}
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		access = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        access = null;
+    }
 
-	// LocalFSAccess
+    // LocalFSAccess
 
 }

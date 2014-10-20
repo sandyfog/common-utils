@@ -14,51 +14,50 @@ import com.baidu.unbiz.common.convert.TypeConverter;
  * @version create on 2014年9月19日 下午7:18:18
  */
 @TypeConverter.Convert
-public class ClassArrayConverter extends ArrayConverter<Class<?>> implements
-		TypeConverter<Class<?>[]> {
+public class ClassArrayConverter extends ArrayConverter<Class<?>> implements TypeConverter<Class<?>[]> {
 
-	protected final ConvertBean convertBean;
+    protected final ConvertBean convertBean;
 
-	@SuppressWarnings("unchecked")
-	public ClassArrayConverter() {
-		this.convertBean = ConvertUtil.getInstance();
-		converterManagerBean.register(Class[].class, this);
-		
-		this.targetComponentType = (Class<Class<?>>) Class[].class.getComponentType();
-	}
+    @SuppressWarnings("unchecked")
+    public ClassArrayConverter() {
+        this.convertBean = ConvertUtil.getInstance();
+        converterManagerBean.register(Class[].class, this);
 
-	public ClassArrayConverter(ConvertBean convertBean) {
-		this.convertBean = convertBean;
-		converterManagerBean.register(Class[].class, this);
-	}
+        this.targetComponentType = (Class<Class<?>>) Class[].class.getComponentType();
+    }
 
-	@Override
-	protected Class<?>[] createArray(int length) {
-		return new Class[length];
-	}
+    public ClassArrayConverter(ConvertBean convertBean) {
+        this.convertBean = convertBean;
+        converterManagerBean.register(Class[].class, this);
+    }
 
-	@Override
-	protected String[] convertStringToArray(String value) {
-		String[] strings = StringUtil.splitc(value, NUMBER_DELIMITERS);
+    @Override
+    protected Class<?>[] createArray(int length) {
+        return new Class[length];
+    }
 
-		int count = 0;
+    @Override
+    protected String[] convertStringToArray(String value) {
+        String[] strings = StringUtil.splitc(value, NUMBER_DELIMITERS);
 
-		for (int i = 0; i < strings.length; i++) {
-			strings[count] = strings[i].trim();
-			if (strings[count].length() == 0) {
-				continue;
-			}
+        int count = 0;
 
-			if (!strings[count].startsWith(StringPool.Symbol.HASH)) {
-				count++;
-			}
-		}
+        for (int i = 0; i < strings.length; i++) {
+            strings[count] = strings[i].trim();
+            if (strings[count].length() == 0) {
+                continue;
+            }
 
-		if (count != strings.length) {
-			return ArrayUtil.subarray(strings, 0, count);
-		}
+            if (!strings[count].startsWith(StringPool.Symbol.HASH)) {
+                count++;
+            }
+        }
 
-		return strings;
-	}
+        if (count != strings.length) {
+            return ArrayUtil.subarray(strings, 0, count);
+        }
+
+        return strings;
+    }
 
 }

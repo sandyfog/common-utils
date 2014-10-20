@@ -7,11 +7,10 @@ package com.baidu.unbiz.common.able;
  * @version create on 2014年7月15日 下午2:12:44
  */
 public interface Closure {
-	/**
-	 * Performs an action on the specified input object.
-	 * 
-	 * @param input
-	 *            the input to execute on
-	 */
-	public void execute(Object... input);
+    /**
+     * Performs an action on the specified input object.
+     * 
+     * @param input the input to execute on
+     */
+    public void execute(Object...input);
 }

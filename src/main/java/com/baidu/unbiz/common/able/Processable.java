@@ -10,15 +10,15 @@ package com.baidu.unbiz.common.able;
  */
 public interface Processable extends Closure {
 
-	/**
-	 * info about execute results
-	 * 
-	 * @return execute results
-	 */
-	String getInfo();
+    /**
+     * info about execute results
+     * 
+     * @return execute results
+     */
+    String getInfo();
 
-	public void execute(String... input);
+    public void execute(String...input);
 
-	public void execute(String input);
+    public void execute(String input);
 
 }

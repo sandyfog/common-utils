@@ -23,7 +23,7 @@ import com.baidu.unbiz.common.io.StreamUtil;
  * @version create on 2014年7月21日 上午8:36:26
  */
 public class StreamUtilTest {
-	
+
     private static byte[] bytes;
     private static String chars;
 

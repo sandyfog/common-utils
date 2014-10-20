@@ -12,8 +12,8 @@ import com.baidu.unbiz.common.access.AccessDecorator;
  */
 public class MooseFSAccess extends AccessDecorator {
 
-	public MooseFSAccess(Access access) {
-		super(access, "MooseFS");
-	}
+    public MooseFSAccess(Access access) {
+        super(access, "MooseFS");
+    }
 
 }

@@ -9,8 +9,8 @@ package com.baidu.unbiz.common.groundwork;
  */
 public interface Initializable {
 
-	public void initialize();
+    public void initialize();
 
-	public boolean isInitialized();
+    public boolean isInitialized();
 
 }

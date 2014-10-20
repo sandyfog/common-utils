@@ -20,25 +20,25 @@ import org.junit.Test;
  */
 public class EmptysTest {
 
-	@Test
-	public void nullPlaceholder_toString() throws Exception {
-		assertEquals("null", NULL_PLACEHOLDER.toString());
-	}
+    @Test
+    public void nullPlaceholder_toString() throws Exception {
+        assertEquals("null", NULL_PLACEHOLDER.toString());
+    }
 
-	@Test
-	public void nullPlaceholder_serialize() throws Exception {
-		// write
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ObjectOutputStream oos = new ObjectOutputStream(baos);
+    @Test
+    public void nullPlaceholder_serialize() throws Exception {
+        // write
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
 
-		oos.writeObject(NULL_PLACEHOLDER);
-		oos.close();
+        oos.writeObject(NULL_PLACEHOLDER);
+        oos.close();
 
-		// read
-		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-		ObjectInputStream ois = new ObjectInputStream(bais);
+        // read
+        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bais);
 
-		assertSame(NULL_PLACEHOLDER, ois.readObject());
-	}
+        assertSame(NULL_PLACEHOLDER, ois.readObject());
+    }
 
 }

@@ -9,11 +9,10 @@ package com.baidu.unbiz.common.able;
  */
 public interface ResponseClosure<T> {
 
-	/**
-	 * 一般用于异步或远程通信
-	 * 
-	 * @param resp
-	 *            附带对象
-	 */
-	void onResponse(T resp);
+    /**
+     * 一般用于异步或远程通信
+     * 
+     * @param resp 附带对象
+     */
+    void onResponse(T resp);
 }

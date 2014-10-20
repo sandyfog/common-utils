@@ -11,6 +11,6 @@ package com.baidu.unbiz.common.access;
  */
 public interface AccessStrategy {
 
-	String find(long id);
+    String find(long id);
 
 }

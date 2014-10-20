@@ -8,15 +8,13 @@ package com.baidu.unbiz.common.able;
  * 
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>
  * @version create on 2014年7月19日 上午2:28:40
- * @param <K>
- *            key
- * @param <V>
- *            value
+ * @param <K> key
+ * @param <V> value
  */
 public interface Entryable<K, V> {
 
-	K getKey();
+    K getKey();
 
-	V getValue();
+    V getValue();
 
 }

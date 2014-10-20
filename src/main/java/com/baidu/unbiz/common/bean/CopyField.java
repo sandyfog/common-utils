@@ -19,5 +19,5 @@ import java.lang.annotation.Target;
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CopyField {
-	Class<?>[] supportFor() default Object.class;
+    Class<?>[] supportFor() default Object.class;
 }

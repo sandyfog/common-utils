@@ -14,39 +14,38 @@ import com.baidu.unbiz.common.able.Adaptable;
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>
  * @version create on 2014年7月25日 上午2:37:58
  */
-public class EnumerationAdapter<E> implements Iterator<E>,
-		Adaptable<Enumeration<?>, Iterator<E>> {
+public class EnumerationAdapter<E> implements Iterator<E>, Adaptable<Enumeration<?>, Iterator<E>> {
 
-	private Enumeration<?> enumeration;
+    private Enumeration<?> enumeration;
 
-	public EnumerationAdapter() {
+    public EnumerationAdapter() {
 
-	}
+    }
 
-	public EnumerationAdapter(Enumeration<?> enumeration) {
-		this.enumeration = enumeration;
-	}
+    public EnumerationAdapter(Enumeration<?> enumeration) {
+        this.enumeration = enumeration;
+    }
 
-	@Override
-	public boolean hasNext() {
-		return enumeration.hasMoreElements();
-	}
+    @Override
+    public boolean hasNext() {
+        return enumeration.hasMoreElements();
+    }
 
-	@Override
-	public E next() {
-		@SuppressWarnings("unchecked")
-		E next = (E) enumeration.nextElement();
-		return next;
-	}
+    @Override
+    public E next() {
+        @SuppressWarnings("unchecked")
+        E next = (E) enumeration.nextElement();
+        return next;
+    }
 
-	@Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
 
-	@Override
-	public Iterator<E> forNew(Enumeration<?> old) {
-		return new EnumerationAdapter<E>(old);
-	}
+    @Override
+    public Iterator<E> forNew(Enumeration<?> old) {
+        return new EnumerationAdapter<E>(old);
+    }
 
 }

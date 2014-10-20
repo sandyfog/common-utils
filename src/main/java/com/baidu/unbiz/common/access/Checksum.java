@@ -11,11 +11,11 @@ package com.baidu.unbiz.common.access;
  */
 public interface Checksum {
 
-	/**
-	 * 获取校验码
-	 * 
-	 * @return 校验码
-	 */
-	long checksum();
+    /**
+     * 获取校验码
+     * 
+     * @return 校验码
+     */
+    long checksum();
 
 }

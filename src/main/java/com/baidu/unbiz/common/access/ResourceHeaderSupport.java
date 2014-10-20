@@ -17,66 +17,66 @@ import com.baidu.unbiz.common.CollectionUtil;
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>
  * @version create on 2014年7月27日 上午4:07:00
  */
-public class ResourceHeaderSupport implements ResourceHeader,Serializable {
+public class ResourceHeaderSupport implements ResourceHeader, Serializable {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -7084835063414563471L;
+    private static final long serialVersionUID = -7084835063414563471L;
 
-	protected final Map<String, String> info;
+    protected final Map<String, String> info;
 
-	protected String encode;
+    protected String encode;
 
-	protected String ext;
+    protected String ext;
 
-	public ResourceHeaderSupport() {
-		info = CollectionUtil.createHashMap();
-	}
+    public ResourceHeaderSupport() {
+        info = CollectionUtil.createHashMap();
+    }
 
-	public ResourceHeaderSupport(Map<String, String> info) {
-		this.info = info;
-	}
+    public ResourceHeaderSupport(Map<String, String> info) {
+        this.info = info;
+    }
 
-	@Override
-	public String encode() {
-		return (encode == null) ? Charset.defaultCharset().name() : encode;
-	}
+    @Override
+    public String encode() {
+        return (encode == null) ? Charset.defaultCharset().name() : encode;
+    }
 
-	@Override
-	public String ext() {
-		return ext;
-	}
+    @Override
+    public String ext() {
+        return ext;
+    }
 
-	public ResourceHeader encode(String encode) {
-		this.encode = encode;
-		info.put("encode", encode);
+    public ResourceHeader encode(String encode) {
+        this.encode = encode;
+        info.put("encode", encode);
 
-		return this;
-	}
+        return this;
+    }
 
-	public ResourceHeader ext(String ext) {
-		this.ext = ext;
-		info.put("ext", ext);
+    public ResourceHeader ext(String ext) {
+        this.ext = ext;
+        info.put("ext", ext);
 
-		return this;
-	}
+        return this;
+    }
 
-	@Override
-	public String getAttribute(String name) {
-		return info.get(name);
-	}
+    @Override
+    public String getAttribute(String name) {
+        return info.get(name);
+    }
 
-	@Override
-	public ResourceHeader setAttribute(String name, String value) {
-		info.put(name, value);
+    @Override
+    public ResourceHeader setAttribute(String name, String value) {
+        info.put(name, value);
 
-		return this;
-	}
+        return this;
+    }
 
-	@Override
-	public Set<Map.Entry<String, String>> getInfo() {
-		return Collections.unmodifiableSet(info.entrySet());
-	}
+    @Override
+    public Set<Map.Entry<String, String>> getInfo() {
+        return Collections.unmodifiableSet(info.entrySet());
+    }
 
 }

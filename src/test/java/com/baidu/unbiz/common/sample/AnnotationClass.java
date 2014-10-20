@@ -13,65 +13,65 @@ import java.util.Date;
  */
 public class AnnotationClass {
 
-	private int x;
-	@Test(value = "y")
-	private int y;
+    private int x;
+    @Test(value = "y")
+    private int y;
 
-	private String z;
-	@Test(value = "d")
-	private Date d;
+    private String z;
+    @Test(value = "d")
+    private Date d;
 
-	public int getX() {
-		return x;
-	}
+    public int getX() {
+        return x;
+    }
 
-	@Test(value = "setX")
-	public void setX(int x) {
-		this.x = x;
-	}
+    @Test(value = "setX")
+    public void setX(int x) {
+        this.x = x;
+    }
 
-	@Test(value = "getY")
-	public int getY() {
-		return y;
-	}
+    @Test(value = "getY")
+    public int getY() {
+        return y;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
+    public void setY(int y) {
+        this.y = y;
+    }
 
-	@Test(value = "getZ")
-	public String getZ() {
-		return z;
-	}
+    @Test(value = "getZ")
+    public String getZ() {
+        return z;
+    }
 
-	@Test(value = "setZ")
-	public void setZ(String z) {
-		this.z = z;
-	}
+    @Test(value = "setZ")
+    public void setZ(String z) {
+        this.z = z;
+    }
 
-	@Test(value = "getD")
-	public Date getD() {
-		return d;
-	}
+    @Test(value = "getD")
+    public Date getD() {
+        return d;
+    }
 
-	@Test(value = "setD")
-	public void setD(Date d) {
-		this.d = d;
-	}
+    @Test(value = "setD")
+    public void setD(Date d) {
+        this.d = d;
+    }
 
-	@Test(value = "toString")
-	public String toString() {
-		return super.toString();
-	}
+    @Test(value = "toString")
+    public String toString() {
+        return super.toString();
+    }
 
-	@Test(value = "clone")
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+    @Test(value = "clone")
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
-	@Retention(RetentionPolicy.RUNTIME)
-	public @interface Test {
-		String value();
-	}
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Test {
+        String value();
+    }
 
 }

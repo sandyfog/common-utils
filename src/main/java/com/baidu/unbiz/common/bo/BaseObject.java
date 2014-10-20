@@ -8,26 +8,27 @@ import java.io.Serializable;
 
 /**
  * 使用GenericDao做映射的对象，必须都继承与这个类
+ * 
  * @author Darwin(Tianxin)
  */
-public class BaseObject<KEY extends Serializable> implements Serializable{
+public class BaseObject<KEY extends Serializable> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	public BaseObject() {
-	}
-	
-	/**
-	 * 主键字段
-	 */
-	protected KEY id;
+    private static final long serialVersionUID = 1L;
 
-	public KEY getId() {
-		return id;
-	}
+    public BaseObject() {
+    }
 
-	public void setId(KEY id) {
-		this.id = id;
-	}
-	
+    /**
+     * 主键字段
+     */
+    protected KEY id;
+
+    public KEY getId() {
+        return id;
+    }
+
+    public void setId(KEY id) {
+        this.id = id;
+    }
+
 }

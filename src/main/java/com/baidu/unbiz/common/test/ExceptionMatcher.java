@@ -22,97 +22,92 @@ import org.hamcrest.Matcher;
  * @param <T>
  */
 public class ExceptionMatcher<T extends Throwable> extends BaseMatcher<T> {
-	private final Matcher<?> exceptionMatcher;
-	private final Matcher<?> causeExceptionMatcher;
-	private final Matcher<?> messageMatcher;
-	private final Class<? extends Throwable> cause;
+    private final Matcher<?> exceptionMatcher;
+    private final Matcher<?> causeExceptionMatcher;
+    private final Matcher<?> messageMatcher;
+    private final Class<? extends Throwable> cause;
 
-	public ExceptionMatcher(String... snippets) {
-		this(null, snippets);
-	}
+    public ExceptionMatcher(String...snippets) {
+        this(null, snippets);
+    }
 
-	public ExceptionMatcher(Class<? extends Throwable> cause,
-			String... snippets) {
-		// exception matcher
-		List<Matcher<?>> matchers = new LinkedList<Matcher<?>>();
+    public ExceptionMatcher(Class<? extends Throwable> cause, String...snippets) {
+        // exception matcher
+        List<Matcher<?>> matchers = new LinkedList<Matcher<?>>();
 
-		matchers.add(notNullValue());
-		matchers.add(instanceOf(Throwable.class));
+        matchers.add(notNullValue());
+        matchers.add(instanceOf(Throwable.class));
 
-		exceptionMatcher = allOf(matchers);
+        exceptionMatcher = allOf(matchers);
 
-		// cause exception matcher
-		if (cause != null) {
-			matchers = new LinkedList<Matcher<?>>();
+        // cause exception matcher
+        if (cause != null) {
+            matchers = new LinkedList<Matcher<?>>();
 
-			matchers.add(notNullValue());
-			matchers.add(instanceOf(cause));
+            matchers.add(notNullValue());
+            matchers.add(instanceOf(cause));
 
-			causeExceptionMatcher = allOf(matchers);
-		} else {
-			causeExceptionMatcher = null;
-		}
+            causeExceptionMatcher = allOf(matchers);
+        } else {
+            causeExceptionMatcher = null;
+        }
 
-		this.cause = cause;
+        this.cause = cause;
 
-		// message exception matcher
-		if (snippets != null && snippets.length > 0) {
-			matchers = new LinkedList<Matcher<?>>();
+        // message exception matcher
+        if (snippets != null && snippets.length > 0) {
+            matchers = new LinkedList<Matcher<?>>();
 
-			for (String snippet : snippets) {
-				matchers.add(containsString(snippet));
-			}
+            for (String snippet : snippets) {
+                matchers.add(containsString(snippet));
+            }
 
-			messageMatcher = allOf(matchers);
-		} else {
-			messageMatcher = null;
-		}
-	}
+            messageMatcher = allOf(matchers);
+        } else {
+            messageMatcher = null;
+        }
+    }
 
-	public boolean matches(Object item) {
-		if (!exceptionMatcher.matches(item)) {
-			return false;
-		}
-		Throwable top = (Throwable) item;
-		Throwable t = top;
+    public boolean matches(Object item) {
+        if (!exceptionMatcher.matches(item)) {
+            return false;
+        }
+        Throwable top = (Throwable) item;
+        Throwable t = top;
 
-		if (causeExceptionMatcher != null) {
-			Set<Throwable> visited = new HashSet<Throwable>();
+        if (causeExceptionMatcher != null) {
+            Set<Throwable> visited = new HashSet<Throwable>();
 
-			for (; t != null && !cause.isInstance(t) && !visited.contains(t); t = t
-					.getCause()) {
-				visited.add(t);
-			}
+            for (; t != null && !cause.isInstance(t) && !visited.contains(t); t = t.getCause()) {
+                visited.add(t);
+            }
 
-			if (!causeExceptionMatcher.matches(t)) {
-				return false;
-			}
-		}
+            if (!causeExceptionMatcher.matches(t)) {
+                return false;
+            }
+        }
 
-		if (messageMatcher == null) {
-			return true;
-		} 
-		String message = t.getMessage();
+        if (messageMatcher == null) {
+            return true;
+        }
+        String message = t.getMessage();
 
-		if (t != top) {
-			message += "\n" + top.getMessage();
-		}
+        if (t != top) {
+            message += "\n" + top.getMessage();
+        }
 
-		return messageMatcher.matches(message);
-	}
+        return messageMatcher.matches(message);
+    }
 
-	public void describeTo(Description description) {
-		description.appendText("An exception that is ").appendDescriptionOf(
-				exceptionMatcher);
+    public void describeTo(Description description) {
+        description.appendText("An exception that is ").appendDescriptionOf(exceptionMatcher);
 
-		if (causeExceptionMatcher != null) {
-			description.appendText("\n  and its cause exception is ")
-					.appendDescriptionOf(causeExceptionMatcher);
-		}
+        if (causeExceptionMatcher != null) {
+            description.appendText("\n  and its cause exception is ").appendDescriptionOf(causeExceptionMatcher);
+        }
 
-		if (messageMatcher != null) {
-			description.appendText("\n  and its message is ")
-					.appendDescriptionOf(messageMatcher);
-		}
-	}
+        if (messageMatcher != null) {
+            description.appendText("\n  and its message is ").appendDescriptionOf(messageMatcher);
+        }
+    }
 }

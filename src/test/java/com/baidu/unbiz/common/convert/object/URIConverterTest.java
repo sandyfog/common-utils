@@ -19,13 +19,13 @@ import com.baidu.unbiz.common.convert.object.URIConverter;
  */
 public class URIConverterTest {
 
-	@Test
-	public void toConvert() {
-		URIConverter uriConverter = new URIConverter();
+    @Test
+    public void toConvert() {
+        URIConverter uriConverter = new URIConverter();
 
-		File f = new File("/folder/file.ext");
-		URI uri = uriConverter.toConvert(f);
-		assertNotNull(uri);
-	}
+        File f = new File("/folder/file.ext");
+        URI uri = uriConverter.toConvert(f);
+        assertNotNull(uri);
+    }
 
 }

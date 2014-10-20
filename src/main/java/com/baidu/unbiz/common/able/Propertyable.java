@@ -10,11 +10,11 @@ import java.util.Map;
  */
 public interface Propertyable {
 
-	Object getProperty(String key);
+    Object getProperty(String key);
 
-	Map<String, Object> getProperties();
+    Map<String, Object> getProperties();
 
-	void setProperty(String key, Object value);
+    void setProperty(String key, Object value);
 
-	void setProperties(Map<String, Object> properties);
+    void setProperties(Map<String, Object> properties);
 }

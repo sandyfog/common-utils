@@ -9,6 +9,6 @@ package com.baidu.unbiz.common.io;
  */
 public interface IOConstant {
 
-	int DEFAULT_BUFFER_SIZE = 8192;
+    int DEFAULT_BUFFER_SIZE = 8192;
 
 }

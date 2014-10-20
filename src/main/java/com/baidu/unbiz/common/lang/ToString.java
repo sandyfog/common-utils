@@ -15,14 +15,13 @@ import com.baidu.unbiz.common.apache.ToStringStyle;
  */
 public class ToString implements ToStringable, Serializable {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -7273706793161702222L;
+    private static final long serialVersionUID = -7273706793161702222L;
 
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.SHORT_PREFIX_STYLE);
-	}
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 
 }

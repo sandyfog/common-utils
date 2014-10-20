@@ -26,79 +26,75 @@ import com.baidu.unbiz.common.sample.CsvBean;
  */
 public class CsvProcessorTest extends CachedLogger {
 
-	private static final String testBeanPath = ClassLoaderUtil.getClasspath()
-			+ File.separator + "test_bean.csv";
+    private static final String testBeanPath = ClassLoaderUtil.getClasspath() + File.separator + "test_bean.csv";
 
-	private static final String testBeansPath = ClassLoaderUtil.getClasspath()
-			+ File.separator + "test_beans.csv";
+    private static final String testBeansPath = ClassLoaderUtil.getClasspath() + File.separator + "test_beans.csv";
 
-	private FileProcessor processor;
+    private FileProcessor processor;
 
-	@Before
-	public void setUp() throws Exception {
-		processor = FileType.CSV.createProcessor();
-	}
+    @Before
+    public void setUp() throws Exception {
+        processor = FileType.CSV.createProcessor();
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		processor = null;
-	}
+    @After
+    public void tearDown() throws Exception {
+        processor = null;
+    }
 
-	@Test
-	public void importBean() {
-		CsvBean bean = createBean("小明", 25, "自由", "某某小区");
+    @Test
+    public void importBean() {
+        CsvBean bean = createBean("小明", 25, "自由", "某某小区");
 
-		try {
-			processor.importBean(bean, testBeanPath);
-		} catch (IOException e) {
-			logger.error("", e);
-		}
-	}
+        try {
+            processor.importBean(bean, testBeanPath);
+        } catch (IOException e) {
+            logger.error("", e);
+        }
+    }
 
-	//null会转变成""
-	@Test
-	public void importBeans() {
-		List<CsvBean> list = CollectionUtil.createArrayList();
-		CsvBean bean = createBean("小明", 25, "自由", "某某小区");
-		list.add(bean);
-		bean = createBean("小李", 28, "IT", "某某家园");
-		list.add(bean);
-		bean = createBean("小红", 7, null, "父母家");
-		list.add(bean);
-		bean = createBean("小王", 26, "金融", "某某别墅");
-		list.add(bean);
+    // null会转变成""
+    @Test
+    public void importBeans() {
+        List<CsvBean> list = CollectionUtil.createArrayList();
+        CsvBean bean = createBean("小明", 25, "自由", "某某小区");
+        list.add(bean);
+        bean = createBean("小李", 28, "IT", "某某家园");
+        list.add(bean);
+        bean = createBean("小红", 7, null, "父母家");
+        list.add(bean);
+        bean = createBean("小王", 26, "金融", "某某别墅");
+        list.add(bean);
 
-		try {
-			processor.importBeans(bean.getClass(),
-					list.toArray(new CsvBean[0]), testBeansPath);
-		} catch (IOException e) {
-			logger.error("", e);
-		}
-	}
+        try {
+            processor.importBeans(bean.getClass(), list.toArray(new CsvBean[0]), testBeansPath);
+        } catch (IOException e) {
+            logger.error("", e);
+        }
+    }
 
-	@Test
-	public void exportBean() throws IOException {
-		CsvBean bean = processor.exportBean(CsvBean.class, testBeanPath);
-		
-		assertEquals(bean, createBean("小明", 25, "自由", "某某小区"));
-	}
+    @Test
+    public void exportBean() throws IOException {
+        CsvBean bean = processor.exportBean(CsvBean.class, testBeanPath);
 
-	@Test
-	public void exportBeans() throws IOException {
-		List<CsvBean> list = processor
-				.exportBeans(CsvBean.class, testBeansPath);
+        assertEquals(bean, createBean("小明", 25, "自由", "某某小区"));
+    }
 
-		for (CsvBean bean : list) {
-			logger.info(bean);
-		}
-	}
+    @Test
+    public void exportBeans() throws IOException {
+        List<CsvBean> list = processor.exportBeans(CsvBean.class, testBeansPath);
 
-	private CsvBean createBean(String name, int age, String work, String home) {
-		CsvBean bean = new CsvBean();
-		bean.setName(name);
-		bean.setAge(age);
-		bean.setWork(work);
-		bean.setHome(home);
-		return bean;
-	}
+        for (CsvBean bean : list) {
+            logger.info(bean);
+        }
+    }
+
+    private CsvBean createBean(String name, int age, String work, String home) {
+        CsvBean bean = new CsvBean();
+        bean.setName(name);
+        bean.setAge(age);
+        bean.setWork(work);
+        bean.setHome(home);
+        return bean;
+    }
 }

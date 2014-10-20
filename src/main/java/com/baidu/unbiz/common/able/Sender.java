@@ -11,12 +11,11 @@ package com.baidu.unbiz.common.able;
  */
 public interface Sender<T> {
 
-	/**
-	 * 发送消息，一般用于异步或远程通信
-	 * 
-	 * @param msg
-	 *            发送信息
-	 */
-	void sendMessage(T msg);
+    /**
+     * 发送消息，一般用于异步或远程通信
+     * 
+     * @param msg 发送信息
+     */
+    void sendMessage(T msg);
 
 }

@@ -8,11 +8,10 @@ package com.baidu.unbiz.common.able;
  */
 public interface Receiver<T> {
 
-	/**
-	 * 接受消息，一般用于异步或远程通信
-	 * 
-	 * @param msg
-	 *            接收信息附带对象
-	 */
-	void messageReceived(T msg);
+    /**
+     * 接受消息，一般用于异步或远程通信
+     * 
+     * @param msg 接收信息附带对象
+     */
+    void messageReceived(T msg);
 }

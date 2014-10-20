@@ -7,5 +7,5 @@ package com.baidu.unbiz.common.able;
  * @version create on 2014年9月16日 上午1:22:18
  */
 public interface Transformer<FROM, TO> {
-	TO transform(FROM from);
+    TO transform(FROM from);
 }

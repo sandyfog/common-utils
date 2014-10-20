@@ -14,106 +14,106 @@ import org.slf4j.Marker;
  */
 public interface Logger extends org.slf4j.Logger {
 
-	// ==========================================================================
-	// 打印对象。
-	// ==========================================================================
-	void trace(Object bean);
+    // ==========================================================================
+    // 打印对象。
+    // ==========================================================================
+    void trace(Object bean);
 
-	void info(Object bean);
+    void info(Object bean);
 
-	void debug(Object bean);
+    void debug(Object bean);
 
-	void warn(Object bean);
+    void warn(Object bean);
 
-	void error(Object bean);
+    void error(Object bean);
 
-	void error(String msg, Throwable t, Object... arguments);
+    void error(String msg, Throwable t, Object...arguments);
 
-	// ==========================================================================
-	// if enabled,then logging。
-	// ==========================================================================
+    // ==========================================================================
+    // if enabled,then logging。
+    // ==========================================================================
 
-	// ============ trace begin =============== //
-	void traceIfEnabled(String msg);
+    // ============ trace begin =============== //
+    void traceIfEnabled(String msg);
 
-	void traceIfEnabled(String format, Object... arguments);
+    void traceIfEnabled(String format, Object...arguments);
 
-	void traceIfEnabled(String msg, Throwable t);
+    void traceIfEnabled(String msg, Throwable t);
 
-	void traceIfEnabled(Marker marker, String msg);
+    void traceIfEnabled(Marker marker, String msg);
 
-	public void traceIfEnabled(Marker marker, String format, Object... argArray);
+    public void traceIfEnabled(Marker marker, String format, Object...argArray);
 
-	void traceIfEnabled(Marker marker, String msg, Throwable t);
+    void traceIfEnabled(Marker marker, String msg, Throwable t);
 
-	void traceIfEnabled(Object bean);
+    void traceIfEnabled(Object bean);
 
-	// ============ trace end =============== //
+    // ============ trace end =============== //
 
-	// ============ debug begin =============== //
-	void debugIfEnabled(String msg);
+    // ============ debug begin =============== //
+    void debugIfEnabled(String msg);
 
-	void debugIfEnabled(String format, Object... arguments);
+    void debugIfEnabled(String format, Object...arguments);
 
-	void debugIfEnabled(String msg, Throwable t);
+    void debugIfEnabled(String msg, Throwable t);
 
-	void debugIfEnabled(Marker marker, String msg);
+    void debugIfEnabled(Marker marker, String msg);
 
-	public void debugIfEnabled(Marker marker, String format, Object... argArray);
+    public void debugIfEnabled(Marker marker, String format, Object...argArray);
 
-	void debugIfEnabled(Marker marker, String msg, Throwable t);
+    void debugIfEnabled(Marker marker, String msg, Throwable t);
 
-	void debugIfEnabled(Object bean);
+    void debugIfEnabled(Object bean);
 
-	// ============ debug end =============== //
+    // ============ debug end =============== //
 
-	// ============ info begin =============== //
-	void infoIfEnabled(String msg);
+    // ============ info begin =============== //
+    void infoIfEnabled(String msg);
 
-	void infoIfEnabled(String format, Object... arguments);
+    void infoIfEnabled(String format, Object...arguments);
 
-	void infoIfEnabled(String msg, Throwable t);
+    void infoIfEnabled(String msg, Throwable t);
 
-	void infoIfEnabled(Marker marker, String msg);
+    void infoIfEnabled(Marker marker, String msg);
 
-	public void infoIfEnabled(Marker marker, String format, Object... argArray);
+    public void infoIfEnabled(Marker marker, String format, Object...argArray);
 
-	void infoIfEnabled(Marker marker, String msg, Throwable t);
+    void infoIfEnabled(Marker marker, String msg, Throwable t);
 
-	void infoIfEnabled(Object bean);
+    void infoIfEnabled(Object bean);
 
-	// ============ info end =============== //
+    // ============ info end =============== //
 
-	// ============ warn begin =============== //
-	void warnIfEnabled(String msg);
+    // ============ warn begin =============== //
+    void warnIfEnabled(String msg);
 
-	void warnIfEnabled(String format, Object... arguments);
+    void warnIfEnabled(String format, Object...arguments);
 
-	void warnIfEnabled(String msg, Throwable t);
+    void warnIfEnabled(String msg, Throwable t);
 
-	void warnIfEnabled(Marker marker, String msg);
+    void warnIfEnabled(Marker marker, String msg);
 
-	public void warnIfEnabled(Marker marker, String format, Object... argArray);
+    public void warnIfEnabled(Marker marker, String format, Object...argArray);
 
-	void warnIfEnabled(Marker marker, String msg, Throwable t);
+    void warnIfEnabled(Marker marker, String msg, Throwable t);
 
-	void warnIfEnabled(Object bean);
+    void warnIfEnabled(Object bean);
 
-	// ============ warn end =============== //
+    // ============ warn end =============== //
 
-	// ============ error begin =============== //
-	void errorIfEnabled(String msg);
+    // ============ error begin =============== //
+    void errorIfEnabled(String msg);
 
-	void errorIfEnabled(String format, Object... arguments);
+    void errorIfEnabled(String format, Object...arguments);
 
-	void errorIfEnabled(String msg, Throwable t);
+    void errorIfEnabled(String msg, Throwable t);
 
-	void errorIfEnabled(Marker marker, String msg);
+    void errorIfEnabled(Marker marker, String msg);
 
-	public void errorIfEnabled(Marker marker, String format, Object... argArray);
+    public void errorIfEnabled(Marker marker, String format, Object...argArray);
 
-	void errorIfEnabled(Marker marker, String msg, Throwable t);
+    void errorIfEnabled(Marker marker, String msg, Throwable t);
 
-	void errorIfEnabled(Object bean);
-	// ============ error end =============== //
+    void errorIfEnabled(Object bean);
+    // ============ error end =============== //
 }

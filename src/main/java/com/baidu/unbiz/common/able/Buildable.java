@@ -12,6 +12,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface Buildable<T> {
 
-	T build();
+    T build();
 
 }

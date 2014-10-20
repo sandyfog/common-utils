@@ -16,92 +16,86 @@ import com.baidu.unbiz.common.ReflectionUtil;
  */
 public class FieldDescriptor extends Descriptor implements Getter, Setter {
 
-	protected final Field field;
-	protected final Type type;
-	protected final Class<?> rawType;
-	protected final Class<?> rawComponentType;
-	protected final Class<?> rawKeyComponentType;
+    protected final Field field;
+    protected final Type type;
+    protected final Class<?> rawType;
+    protected final Class<?> rawComponentType;
+    protected final Class<?> rawKeyComponentType;
 
-	public FieldDescriptor(ClassDescriptor classDescriptor, Field field) {
-		super(classDescriptor, ReflectionUtil.isPublic(field));
-		this.field = field;
-		this.type = field.getGenericType();
-		this.rawType = ReflectionUtil.getRawType(type,
-				classDescriptor.getType());
+    public FieldDescriptor(ClassDescriptor classDescriptor, Field field) {
+        super(classDescriptor, ReflectionUtil.isPublic(field));
+        this.field = field;
+        this.type = field.getGenericType();
+        this.rawType = ReflectionUtil.getRawType(type, classDescriptor.getType());
 
-		Class<?>[] componentTypes = ReflectionUtil.getComponentTypes(type,
-				classDescriptor.getType());
-		if (componentTypes != null) {
-			this.rawComponentType = componentTypes[componentTypes.length - 1];
-			this.rawKeyComponentType = componentTypes[0];
-		} else {
-			this.rawComponentType = null;
-			this.rawKeyComponentType = null;
-		}
+        Class<?>[] componentTypes = ReflectionUtil.getComponentTypes(type, classDescriptor.getType());
+        if (componentTypes != null) {
+            this.rawComponentType = componentTypes[componentTypes.length - 1];
+            this.rawKeyComponentType = componentTypes[0];
+        } else {
+            this.rawComponentType = null;
+            this.rawKeyComponentType = null;
+        }
 
-		ReflectionUtil.forceAccess(field);
-	}
+        ReflectionUtil.forceAccess(field);
+    }
 
-	@Override
-	public String getName() {
-		return field.getName();
-	}
+    @Override
+    public String getName() {
+        return field.getName();
+    }
 
-	public Field getField() {
-		return field;
-	}
+    public Field getField() {
+        return field;
+    }
 
-	public Class<?> getRawType() {
-		return rawType;
-	}
+    public Class<?> getRawType() {
+        return rawType;
+    }
 
-	public Class<?> getRawComponentType() {
-		return rawComponentType;
-	}
+    public Class<?> getRawComponentType() {
+        return rawComponentType;
+    }
 
-	public Class<?> getRawKeyComponentType() {
-		return rawKeyComponentType;
-	}
+    public Class<?> getRawKeyComponentType() {
+        return rawKeyComponentType;
+    }
 
-	public Class<?>[] resolveRawComponentTypes() {
-		return ReflectionUtil
-				.getComponentTypes(type, classDescriptor.getType());
-	}
+    public Class<?>[] resolveRawComponentTypes() {
+        return ReflectionUtil.getComponentTypes(type, classDescriptor.getType());
+    }
 
-	public Object invokeGetter(Object target) throws InvocationTargetException,
-			IllegalAccessException {
-		return field.get(target);
-	}
+    public Object invokeGetter(Object target) throws InvocationTargetException, IllegalAccessException {
+        return field.get(target);
+    }
 
-	public Class<?> getGetterRawType() {
-		return getRawType();
-	}
+    public Class<?> getGetterRawType() {
+        return getRawType();
+    }
 
-	public Class<?> getGetterRawComponentType() {
-		return getRawComponentType();
-	}
+    public Class<?> getGetterRawComponentType() {
+        return getRawComponentType();
+    }
 
-	public Class<?> getGetterRawKeyComponentType() {
-		return getRawKeyComponentType();
-	}
+    public Class<?> getGetterRawKeyComponentType() {
+        return getRawKeyComponentType();
+    }
 
-	public void invokeSetter(Object target, Object argument)
-			throws IllegalAccessException {
-		field.set(target, argument);
-	}
+    public void invokeSetter(Object target, Object argument) throws IllegalAccessException {
+        field.set(target, argument);
+    }
 
-	public Class<?> getSetterRawType() {
-		return getRawType();
-	}
+    public Class<?> getSetterRawType() {
+        return getRawType();
+    }
 
-	public Class<?> getSetterRawComponentType() {
-		return getRawComponentType();
-	}
+    public Class<?> getSetterRawComponentType() {
+        return getRawComponentType();
+    }
 
-	@Override
-	public String toString() {
-		return classDescriptor.getType().getSimpleName() + '#'
-				+ field.getName();
-	}
+    @Override
+    public String toString() {
+        return classDescriptor.getType().getSimpleName() + '#' + field.getName();
+    }
 
 }

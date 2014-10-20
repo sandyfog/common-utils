@@ -15,22 +15,20 @@ import com.baidu.unbiz.common.Emptys;
  */
 public class FunctorTest {
 
-	@Test
-	public void functor_no_parameter() {
-		Functor functor = new Functor("functor", "length");
-		functor.execute(Emptys.EMPTY_OBJECT_ARRAY);
+    @Test
+    public void functor_no_parameter() {
+        Functor functor = new Functor("functor", "length");
+        functor.execute(Emptys.EMPTY_OBJECT_ARRAY);
 
-		assertEquals(7, functor.getResult());
-	}
+        assertEquals(7, functor.getResult());
+    }
 
-	@Test
-	public void functor_parameter() {
-		Functor functor = new Functor(new StringBuilder("functor\n"), "append",
-				char[].class);
-		functor.execute(new char[] { 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o',
-				'r', 'l', 'd' });
+    @Test
+    public void functor_parameter() {
+        Functor functor = new Functor(new StringBuilder("functor\n"), "append", char[].class);
+        functor.execute(new char[] { 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd' });
 
-		assertEquals("functor\nHello World", functor.getResult().toString());
-	}
+        assertEquals("functor\nHello World", functor.getResult().toString());
+    }
 
 }

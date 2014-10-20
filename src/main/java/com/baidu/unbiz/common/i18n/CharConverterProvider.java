@@ -10,6 +10,6 @@ package com.baidu.unbiz.common.i18n;
  * @version create on 2014年7月24日 上午3:43:02
  */
 public interface CharConverterProvider {
-	/** 创建一个新的converter。 */
-	CharConverter createCharConverter();
+    /** 创建一个新的converter。 */
+    CharConverter createCharConverter();
 }

@@ -13,20 +13,17 @@ import org.junit.Test;
  */
 public class DoubleConverterTest {
 
-	@Test
-	public void toConvert() {
-		DoubleConverter doubleConverter = new DoubleConverter();
+    @Test
+    public void toConvert() {
+        DoubleConverter doubleConverter = new DoubleConverter();
 
-		assertEquals(Double.valueOf(1),
-				doubleConverter.toConvert(Integer.valueOf(1)));
-		assertEquals(Double.valueOf(1.73),
-				doubleConverter.toConvert(Double.valueOf(1.73D)));
-		assertEquals(Double.valueOf(1.73), doubleConverter.toConvert("1.73"));
-		assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(" 1.73 "));
-		assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(" +1.73 "));
-		assertEquals(Double.valueOf(-1.73), doubleConverter.toConvert(" -1.73 "));
-		assertEquals(Double.valueOf(1.73),
-				doubleConverter.toConvert(new BigDecimal("1.73")));
+        assertEquals(Double.valueOf(1), doubleConverter.toConvert(Integer.valueOf(1)));
+        assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(Double.valueOf(1.73D)));
+        assertEquals(Double.valueOf(1.73), doubleConverter.toConvert("1.73"));
+        assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(" 1.73 "));
+        assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(" +1.73 "));
+        assertEquals(Double.valueOf(-1.73), doubleConverter.toConvert(" -1.73 "));
+        assertEquals(Double.valueOf(1.73), doubleConverter.toConvert(new BigDecimal("1.73")));
 
-	}
+    }
 }

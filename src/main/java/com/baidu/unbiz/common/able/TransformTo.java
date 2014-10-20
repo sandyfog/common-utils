@@ -9,6 +9,6 @@ package com.baidu.unbiz.common.able;
  */
 public interface TransformTo<TO> {
 
-	TO transform();
+    TO transform();
 
 }
