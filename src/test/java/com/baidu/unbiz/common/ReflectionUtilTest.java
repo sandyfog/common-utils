@@ -196,15 +196,6 @@ public class ReflectionUtilTest extends CachedLogger {
     }
 
     @Test
-    public void getGenericRecursion() throws Exception {
-        Class<?> clazz = ReflectionUtil.getGenericRecursion(ConcreteClass.class, String.class);
-        System.out.println(clazz);
-        Class<?>[] genericSupertypes = ReflectionUtil.getGenericSuperTypes(ConcreteClass.class);
-        assertEquals(String.class, genericSupertypes[0]);
-        assertEquals(Integer.class, genericSupertypes[1]);
-    }
-
-    @Test
     public void getGenericSuperType() throws Exception {
         Class<?>[] genericSupertypes = ReflectionUtil.getGenericSuperTypes(ConcreteClass.class);
         assertEquals(String.class, genericSupertypes[0]);

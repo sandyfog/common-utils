@@ -1050,6 +1050,70 @@ public abstract class ReflectionUtil {
     // ==========================================================================
     // 泛型相关的方法。
     // ==========================================================================
+    public static Class<?> getComponentType(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        return getComponentType(clazz.getGenericSuperclass(), null);
+    }
+
+    public static Class<?> getComponentType(Class<?> clazz, int index) {
+        if (clazz == null) {
+            return null;
+        }
+
+        Class<?>[] classes = getComponentTypes(clazz.getGenericSuperclass(), null);
+        return classes[index];
+    }
+
+    public static Class<?>[] getComponentTypes(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        return getComponentTypes(clazz.getGenericSuperclass(), null);
+    }
+
+    public static Class<?>[] getComponentTypesRecursion(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        Class<?>[] classes = getComponentTypes(clazz.getGenericSuperclass(), null);
+        if (ArrayUtil.isNotEmpty(classes)) {
+            return classes;
+        }
+
+        return getComponentTypesRecursion(clazz.getSuperclass());
+    }
+
+    public static Class<?> getComponentTypeRecursion(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        Class<?>[] classes = getComponentTypes(clazz.getGenericSuperclass(), null);
+        if (ArrayUtil.isNotEmpty(classes)) {
+            return classes[classes.length - 1];
+        }
+
+        return getComponentTypeRecursion(clazz);
+    }
+
+    public static Class<?> getComponentTypeRecursion(Class<?> clazz, int index) {
+        if (clazz == null) {
+            return null;
+        }
+
+        Class<?>[] classes = getComponentTypes(clazz.getGenericSuperclass(), null);
+        if (ArrayUtil.isNotEmpty(classes)) {
+            return classes[index];
+        }
+
+        return getComponentTypeRecursion(clazz, index);
+    }
+
     /**
      * 获取<code>type</code>的泛型 ，如果<code>type</code>有多个泛型，那么将返回最后一个
      * <p>
@@ -1146,52 +1210,6 @@ public abstract class ReflectionUtil {
 
         return null;
 
-    }
-
-    /** 递归直到发现父类的泛型 FIXME */
-    public static Class<?> getGenericRecursion(Class<?> type) {
-        return getGenericRecursion(type, null);
-    }
-
-    /** 递归直到发现父类的泛型 FIXME */
-    public static Class<?> getGenericRecursion(Class<?> type, Class<?> implClass) {
-        if (type == null) {
-            return null;
-        }
-        Class<?> clazz = getComponentType(type, implClass);
-        if (clazz != null) {
-            return clazz;
-        }
-
-        Type genericSuperclass = type.getGenericSuperclass();
-        if (genericSuperclass == null) {
-            return null;
-        }
-        clazz = getComponentType(genericSuperclass, implClass);
-        if (clazz != null) {
-            return clazz;
-        }
-
-        if (Class.class.isInstance(genericSuperclass)) {
-            return _getGenericSuperRecursion((Class<?>) genericSuperclass, implClass);
-        }
-        return null;
-    }
-
-    static Class<?> _getGenericSuperRecursion(Class<?> type, Class<?> implClass) {
-        Type genericSuperclass = type.getGenericSuperclass();
-        if (genericSuperclass == null) {
-            return null;
-        }
-        Class<?> clazz = getComponentType(genericSuperclass, implClass);
-        if (clazz != null) {
-            return clazz;
-        }
-
-        if (Class.class.isInstance(genericSuperclass)) {
-            return _getGenericSuperRecursion((Class<?>) genericSuperclass, implClass);
-        }
-        return null;
     }
 
     enum GenericType {
