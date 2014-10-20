@@ -15,8 +15,8 @@ import org.junit.Test;
 
 import com.baidu.unbiz.common.ClassLoaderUtil;
 import com.baidu.unbiz.common.CollectionUtil;
-import com.baidu.unbiz.common.file.FileType;
 import com.baidu.unbiz.common.file.FileProcessor;
+import com.baidu.unbiz.common.file.FileType;
 import com.baidu.unbiz.common.logger.CachedLogger;
 import com.baidu.unbiz.common.sample.CsvBean;
 
@@ -75,6 +75,9 @@ public class CsvProcessorTest extends CachedLogger {
 
     @Test
     public void exportBean() throws IOException {
+
+        importBean();
+
         CsvBean bean = processor.exportBean(CsvBean.class, testBeanPath);
 
         assertEquals(bean, createBean("小明", 25, "自由", "某某小区"));
@@ -82,6 +85,9 @@ public class CsvProcessorTest extends CachedLogger {
 
     @Test
     public void exportBeans() throws IOException {
+
+        importBeans();
+
         List<CsvBean> list = processor.exportBeans(CsvBean.class, testBeansPath);
 
         for (CsvBean bean : list) {

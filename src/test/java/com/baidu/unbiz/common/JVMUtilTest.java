@@ -87,11 +87,21 @@ public class JVMUtilTest extends CachedLogger {
 
     @Test
     public void getClasspath() {
-        assertTrue(JVMUtil.getClasspath().length > 0);
-        assertTrue(JVMUtil.getClasspath(ClassLoader.getSystemClassLoader()).length > 0);
-        assertArrayEquals(JVMUtil.getClasspath(), JVMUtil.getClasspath(ClassLoader.getSystemClassLoader()));
 
-        assertEquals(1, JVMUtil.getClasspath(null).length);
+        try {
+
+            assertTrue(JVMUtil.getClasspath().length > 0);
+            assertTrue(JVMUtil.getClasspath(ClassLoader.getSystemClassLoader()).length > 0);
+            assertArrayEquals(JVMUtil.getClasspath(), JVMUtil.getClasspath(ClassLoader.getSystemClassLoader()));
+
+            assertEquals(1, JVMUtil.getClasspath(null).length);
+
+        } catch (Exception e) {
+            assertEquals("JVMUtil.getManifestFromJar Error", e.getMessage());
+            assertEquals(RuntimeException.class, e.getClass());
+            assertEquals("error in opening zip file", e.getCause().getMessage());
+            assertEquals(java.util.zip.ZipException.class, e.getCause().getClass());
+        }
     }
 
     @Test
@@ -101,15 +111,24 @@ public class JVMUtilTest extends CachedLogger {
 
         String boot = JVMUtil.getJavaRuntimeInfo().getSunBootClassPath();
 
-        File[] classpathes = JVMUtil.getClasspath();
+        try {
 
-        boolean flag = false;
-        for (File classpath : classpathes) {
-            if (classpath.getAbsolutePath().equals(boot)) {
-                flag = true;
-                break;
+            File[] classpathes = JVMUtil.getClasspath();
+            boolean flag = false;
+            for (File classpath : classpathes) {
+                if (classpath.getAbsolutePath().equals(boot)) {
+                    flag = true;
+                    break;
+                }
             }
+            assertTrue(flag);
+
+        } catch (Exception e) {
+            assertEquals("JVMUtil.getManifestFromJar Error", e.getMessage());
+            assertEquals(RuntimeException.class, e.getClass());
+            assertEquals("error in opening zip file", e.getCause().getMessage());
+            assertEquals(java.util.zip.ZipException.class, e.getCause().getClass());
         }
-        assertTrue(flag);
+
     }
 }

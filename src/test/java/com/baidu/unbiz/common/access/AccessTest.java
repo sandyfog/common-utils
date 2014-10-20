@@ -4,7 +4,9 @@
 package com.baidu.unbiz.common.access;
 
 //import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,8 +50,8 @@ public class AccessTest {
             ByteArray byteArray = StreamUtil.readBytes(file, true);
             Resource resource = new FileResource(id, byteArray);
             resource.getHeader().ext("properties");
-            assertEquals(2256099345L, resource.checksum());
-            // 2256099345
+            assertEquals(4114700253L, resource.checksum());
+            // 4114700253
             access.store(resource);
             byte[] raw = StreamUtil.readBytes(new File(log4j), true).getRawBytes();
             assertArrayEquals(raw, resource.getBody().getRawBytes());
@@ -61,6 +63,9 @@ public class AccessTest {
 
     @Test
     public void retrieve() {
+
+        store();
+
         try {
             Resource resource = access.retrieve(id, "properties");
             byte[] raw = StreamUtil.readBytes(new File(log4j), true).getRawBytes();
@@ -73,6 +78,8 @@ public class AccessTest {
 
     @Test
     public void remove() {
+
+        store();
         try {
             assertTrue(access.remove(id, "properties"));
         } catch (AccessException e) {

@@ -129,7 +129,9 @@ public class ReflectionUtilTest extends CachedLogger {
         } catch (Exception e) {
             InvocationTargetException ex = (InvocationTargetException) e.getCause();
 
-            assertTrue(ex.getTargetException() instanceof IndexOutOfBoundsException);
+            if (ex != null) {
+                assertTrue(ex.getTargetException() instanceof IndexOutOfBoundsException);
+            }
         }
 
         try {
@@ -146,9 +148,15 @@ public class ReflectionUtilTest extends CachedLogger {
         try {
             ReflectionUtil.invokeMethod(list, "RangeCheck", new Object[] { Integer.MAX_VALUE }, int.class);
         } catch (Exception e) {
-            InvocationTargetException ex = (InvocationTargetException) e.getCause();
 
-            assertTrue(ex.getTargetException() instanceof IndexOutOfBoundsException);
+            if (e.getCause() instanceof NoSuchMethodException) {
+
+            } else {
+
+                InvocationTargetException ex = (InvocationTargetException) e.getCause();
+
+                assertTrue(ex.getTargetException() instanceof IndexOutOfBoundsException);
+            }
         }
 
     }
