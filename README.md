@@ -9,7 +9,7 @@ common-utils.git branches and Maven version:
 
 - master(develop branch): 0.0.3-SNAPSHOT
 
-在Maven Central Repository里查看[com.github.knightliao.apollo](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.knightliao.apollo )
+在Maven Central Repository里查看[com.baidu.unbiz](http://search.maven.org/#search%7Cga%7C1%7Ccom.baidu.unbiz)
 
 ## 项目信息 ##
 
