@@ -1,4 +1,4 @@
-common-utils [![Build Status](https://travis-ci.org/knightliao/common-utils.svg)](https://travis-ci.org/knightliao/common-utils) [![Coverage Status](https://coveralls.io/repos/knightliao/common-utils/badge.png)](https://coveralls.io/r/knightliao/common-utils)
+common-utils [![Build Status](https://travis-ci.org/knightliao/common-utils.svg)](https://travis-ci.org/knightliao/common-utils) [![Coverage Status](https://coveralls.io/repos/knightliao/common-utils/badge.png?branch=master)](https://coveralls.io/r/knightliao/common-utils?branch=master)
 =======
 
 useful, powerful, widely Java Utils Library
