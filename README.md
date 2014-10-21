@@ -7,7 +7,9 @@ useful, powerful, widely Java Utils Library
 
 common-utils.git branches and Maven version:
 
-- dev(develop branch): 0.0.3-SNAPSHOT
+- master(develop branch): 0.0.3-SNAPSHOT
+
+在Maven Central Repository里查看[com.github.knightliao.apollo](http://search.maven.org/#search%7Cga%7C1%7Ccom.github.knightliao.apollo )
 
 ## 项目信息 ##
 
@@ -37,6 +39,6 @@ common-utils.git branches and Maven version:
 
 ## Authors ##
 
-- Xu Chen: xuchen06 AT baidu.com
+- [Xu Chen](https://github.com/xuchen-plus): xuchen06 AT gmail.com
 - [Qiqi Liao](https://github.com/knightliao): knightliao AT gmail.com
 
