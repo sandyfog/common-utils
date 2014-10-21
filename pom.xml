@@ -148,7 +148,7 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-compiler</artifactId>
+                            <artifactId>plexus-compiler-javac</artifactId>
                             <version>1.9.1</version>
                         </dependency>
                     </dependencies>
