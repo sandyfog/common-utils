@@ -108,6 +108,7 @@
                         <instrumentation>
                             <excludes>
                                 <exclude>**/*Proto.class</exclude>
+                                <exclude>**/IntrospectorTest.class</exclude>
                                 <exclude>**/*Proto$*.class</exclude>
                                 <exclude>**/*Controller.class</exclude>
                                 <exclude>**/*Vo.class</exclude>
