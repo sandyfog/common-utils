@@ -1,4 +1,4 @@
-common-utils 
+common-utils [![Build Status](https://travis-ci.org/knightliao/common-utils.svg)](https://travis-ci.org/knightliao/common-utils) [![Coverage Status](https://coveralls.io/repos/knightliao/common-utils/badge.png)](https://coveralls.io/r/knightliao/common-utils)
 =======
 
 useful, powerful, widely Java Utils Library
