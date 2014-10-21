@@ -1098,7 +1098,7 @@ public abstract class ReflectionUtil {
             return classes[classes.length - 1];
         }
 
-        return getComponentTypeRecursion(clazz);
+        return getComponentTypeRecursion(clazz.getSuperclass());
     }
 
     public static Class<?> getComponentTypeRecursion(Class<?> clazz, int index) {
@@ -1111,7 +1111,7 @@ public abstract class ReflectionUtil {
             return classes[index];
         }
 
-        return getComponentTypeRecursion(clazz, index);
+        return getComponentTypeRecursion(clazz.getSuperclass(), index);
     }
 
     /**

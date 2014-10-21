@@ -1254,7 +1254,9 @@ public abstract class CollectionUtil {
         }
 
         Field[] allFields = ReflectionUtil.getAllInstanceFields(clazz);
-        Set<Field> intersection = intersection(createHashSet(fields), createHashSet(allFields));
+        Set<Field> firstFieldSet = createHashSet(fields);
+        Set<Field> secFieldSet = createHashSet(allFields);
+        Set<Field> intersection = intersection(firstFieldSet, secFieldSet);
 
         for (T data : list) {
             O from = map.get(data.getId());

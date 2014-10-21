@@ -41,7 +41,7 @@ public class CollectionConverter<T> implements TypeConverter<Collection<T>> {
 
     protected Collection<T> createCollection(int length) {
         if (collectionType.isInterface()) {
-            if (collectionType == List.class) {
+            if (collectionType.isAssignableFrom(List.class)) {
                 if (length > 0) {
                     return CollectionUtil.createArrayList(length);
                 }
@@ -49,7 +49,7 @@ public class CollectionConverter<T> implements TypeConverter<Collection<T>> {
                 return CollectionUtil.createArrayList();
             }
 
-            if (collectionType == Set.class) {
+            if (collectionType.isAssignableFrom(Set.class)) {
                 if (length > 0) {
                     return CollectionUtil.createHashSet(length);
                 }
