@@ -107,7 +107,7 @@
                         <aggregate>true</aggregate>
                         <instrumentation>
                             <ignores>
-                                <ignore>**/IntrospectorTest.class</ignore>
+                                <ignore>com.baidu.unbiz.common.bean.introspector.IntrospectorTest.*</ignore>
                             </ignores>
                             <excludes>
                                 <exclude>**/*Proto.class</exclude>
@@ -324,7 +324,7 @@
                     </formats>
                     <instrumentation>
                         <ignores>
-                            <ignore>**/IntrospectorTest.class</ignore>
+                            <ignore>com.baidu.unbiz.common.bean.introspector.IntrospectorTest.*</ignore>
                         </ignores>
                         <excludes>
                             <exclude>**/*Proto.class</exclude>
