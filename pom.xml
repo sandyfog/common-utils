@@ -139,7 +139,6 @@
                         <failOnError>true</failOnError>
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
-                        <compilerId>eclipse</compilerId>
                         <compilerArguments>
                             <verbose />
                             <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
@@ -149,7 +148,7 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-compiler-eclipse</artifactId>
+                            <artifactId>plexus-compiler</artifactId>
                             <version>1.9.1</version>
                         </dependency>
                     </dependencies>
