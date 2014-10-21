@@ -21,7 +21,7 @@ import com.baidu.unbiz.common.test.TestUtil;
  */
 public class UUIDTest {
 
-    private final int loop = 10000;
+    private final int loop = 5000;
     private final int concurrency = 20;
     private UUID uuid;
     private String instanceId;

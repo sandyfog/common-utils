@@ -86,12 +86,12 @@
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
                 <includes>
-                    <include>**/*.*</include>
+                    <include>*.*</include>
                 </includes>
             </resource>
         </resources>
 
-        <finalName>common-utils</finalName>
+        <finalName>disconf-base</finalName>
 
         <pluginManagement>
             <!-- 覆盖率 mvn test -->
@@ -139,7 +139,6 @@
                         <failOnError>true</failOnError>
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
-                        <compilerId>eclipse</compilerId>
                         <compilerArguments>
                             <verbose />
                             <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
@@ -149,7 +148,7 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-compiler-eclipse</artifactId>
+                            <artifactId>plexus-compiler-javac</artifactId>
                             <version>1.9.1</version>
                         </dependency>
                     </dependencies>
