@@ -203,7 +203,7 @@
                             <include>**/*Test.java</include>
                         </includes>
                         <excludes>
-                            <exclude>**/*ServiceTest.java</exclude>
+                            <exclude>**/IntrospectorTest.java</exclude>
                             <exclude>**/TempDaoTest.java</exclude>
                         </excludes>
                     </configuration>
