@@ -109,11 +109,9 @@
                             <excludes>
                                 <exclude>**/*Proto.class</exclude>
                                 <exclude>**/*Proto$*.class</exclude>
-                                <exclude>**/*Test.class</exclude>
                                 <exclude>**/*Controller.class</exclude>
                                 <exclude>**/*Vo.class</exclude>
                                 <exclude>**/*Form.class</exclude>
-                                <exclude>**/baidu/ub/**/*.class</exclude>
                             </excludes>
                         </instrumentation>
                     </configuration>
