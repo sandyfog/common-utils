@@ -420,6 +420,15 @@
 
     <developers>
         <developer>
+            <name>Xu Chen</name>
+            <id>xuchen</id>
+            <email>xuchen06 (AT) baidu.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+        <developer>
             <name>Liao Qiqi</name>
             <id>knightliao</id>
             <email>knightliao (AT) gmail.com</email>

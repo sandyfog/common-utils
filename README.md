@@ -28,6 +28,12 @@ common-utils.git branches and Maven version:
         <artifactId>common-utils</artifactId>
         <version>0.0.3-SNAPSHOT</version>
     </dependency>
+    
+主要依赖为：
+
+- [oro](http://jakarta.apache.org/oro/)(2.0.8) for test
+- [hamcrest-core](https://code.google.com/p/hamcrest/)(1.3) 
+- hamcrest-library(1.3) 
 
 ## Authors ##
 
