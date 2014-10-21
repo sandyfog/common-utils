@@ -106,9 +106,11 @@
                         </formats>
                         <aggregate>true</aggregate>
                         <instrumentation>
+                            <ignores>
+                                <ignore>**/IntrospectorTest.class</ignore>
+                            </ignores>
                             <excludes>
                                 <exclude>**/*Proto.class</exclude>
-                                <exclude>**/IntrospectorTest.class</exclude>
                                 <exclude>**/*Proto$*.class</exclude>
                                 <exclude>**/*Controller.class</exclude>
                                 <exclude>**/*Vo.class</exclude>
@@ -321,9 +323,11 @@
                         <format>html</format>
                     </formats>
                     <instrumentation>
+                        <ignores>
+                            <ignore>**/IntrospectorTest.class</ignore>
+                        </ignores>
                         <excludes>
                             <exclude>**/*Proto.class</exclude>
-                            <exclude>**/IntrospectorTest.class</exclude>
                             <exclude>**/*Proto$*.class</exclude>
                             <exclude>**/*Controller.class</exclude>
                             <exclude>**/*Vo.class</exclude>
