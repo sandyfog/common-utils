@@ -39,6 +39,6 @@ common-utils.git branches and Maven version:
 
 ## Authors ##
 
-- [Xu Chen](https://github.com/xuchen-plus): xuchen06 AT gmail.com
+- [Xu Chen](https://github.com/taiyangcheng): xuchen06 AT baidu.com
 - [Qiqi Liao](https://github.com/knightliao): knightliao AT gmail.com
 
