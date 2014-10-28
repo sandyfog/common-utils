@@ -5,6 +5,7 @@ package com.baidu.unbiz.common;
 
 import static com.baidu.unbiz.common.Emptys.EMPTY_STRING;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -1290,6 +1291,28 @@ public abstract class StringUtil {
      */
     public static String[] split(String str) {
         return split(str, null, -1);
+    }
+
+    /**
+     * 将String to long list
+     * 
+     * @param source
+     * @param token
+     * @return
+     */
+    public static List<Long> parseStringToLongList(String source, String token) {
+
+        if (isBlank(source) || isEmpty(token)) {
+            return null;
+        }
+
+        List<Long> result = new ArrayList<Long>();
+        String[] units = source.split(token);
+        for (String unit : units) {
+            result.add(Long.valueOf(unit));
+        }
+
+        return result;
     }
 
     /**
