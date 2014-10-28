@@ -32,7 +32,7 @@ public class AccessTest {
 
     private int id;
 
-    String log4j = ClassLoaderUtil.getClasspath() + File.separator + "log4j.properties";
+    String log4j = ClassLoaderUtil.getClasspath() + File.separator + "META-INF/log4j.properties";
 
     @Before
     public void setUp() throws Exception {

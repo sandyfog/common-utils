@@ -3,12 +3,12 @@
  */
 package com.baidu.unbiz.common;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertArrayEquals;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -17,8 +17,6 @@ import java.net.MalformedURLException;
 
 import org.junit.Test;
 
-import com.baidu.unbiz.common.ClassLoaderUtil;
-import com.baidu.unbiz.common.FileUtil;
 import com.baidu.unbiz.common.logger.CachedLogger;
 
 /**
@@ -46,7 +44,7 @@ public class FileUtilTest extends CachedLogger {
         assertFalse(FileUtil.exist("xxx/yyy/zzz"));
 
         assertTrue(FileUtil.exist(ClassLoaderUtil.getClasspath()));
-        assertTrue(FileUtil.exist(ClassLoaderUtil.getClasspath() + "log4j.properties"));
+        assertTrue(FileUtil.exist(ClassLoaderUtil.getClasspath() + "META-INF/log4j.properties"));
     }
 
     @Test
@@ -158,7 +156,7 @@ public class FileUtilTest extends CachedLogger {
 
             assertNull(FileUtil.readBytes(ClassLoaderUtil.getClasspath()));
 
-            String log4jPath = ClassLoaderUtil.getClasspath() + File.separator + "log4j.properties";
+            String log4jPath = ClassLoaderUtil.getClasspath() + File.separator + "META-INF/log4j.properties";
 
             long fileSize = new File(log4jPath).length();
 
