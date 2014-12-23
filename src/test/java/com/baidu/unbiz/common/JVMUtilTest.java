@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.baidu.unbiz.common.logger.CachedLogger;
@@ -60,6 +61,7 @@ public class JVMUtilTest extends CachedLogger {
         assertTrue(ArrayUtil.isEmpty(JVMUtil.addAllJarsToClassPath("notexist")));
     }
 
+    @Ignore
     @Test
     public void getManifest() {
         assertNull(JVMUtil.getManifest(null));
