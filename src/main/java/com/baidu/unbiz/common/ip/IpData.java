@@ -1,16 +1,15 @@
 /**
- * 
+ *
  */
 package com.baidu.unbiz.common.ip;
 
-import static com.baidu.unbiz.common.StringPool.Symbol.COMMA;
 import static com.baidu.unbiz.common.StringPool.Symbol.BACK_SLASH;
+import static com.baidu.unbiz.common.StringPool.Symbol.COMMA;
 import static com.baidu.unbiz.common.StringPool.Symbol.DOLLARS;
+import static com.baidu.unbiz.common.StringPool.Symbol.NULL;
 
 import com.baidu.unbiz.common.Emptys;
 import com.baidu.unbiz.common.StringUtil;
-
-import static com.baidu.unbiz.common.StringPool.Symbol.NULL;
 
 /**
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>

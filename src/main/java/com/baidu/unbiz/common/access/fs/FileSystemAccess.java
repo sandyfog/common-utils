@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.baidu.unbiz.common.access.fs;
 
@@ -11,9 +11,9 @@ import java.io.OutputStream;
 import com.baidu.unbiz.common.FileUtil;
 import com.baidu.unbiz.common.access.Access;
 import com.baidu.unbiz.common.access.AccessException;
-import com.baidu.unbiz.common.access.ResourceHeader;
 import com.baidu.unbiz.common.access.AccessStrategy;
 import com.baidu.unbiz.common.access.Resource;
+import com.baidu.unbiz.common.access.ResourceHeader;
 import com.baidu.unbiz.common.io.ByteArray;
 import com.baidu.unbiz.common.io.StreamUtil;
 import com.baidu.unbiz.common.logger.CachedLogger;

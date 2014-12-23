@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.baidu.unbiz.common.access.fs;
 
@@ -16,15 +16,15 @@ import com.baidu.unbiz.common.logger.CachedLogger;
 
 /**
  * 文件设备简单实现
- * 
+ *
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>
  * @version create on 2014年7月25日 下午7:12:13
  */
 public class FileResource extends CachedLogger implements Resource, Serializable {
 
     /**
-	 * 
-	 */
+     *
+     */
     private static final long serialVersionUID = -6047557727196586110L;
 
     private long id;

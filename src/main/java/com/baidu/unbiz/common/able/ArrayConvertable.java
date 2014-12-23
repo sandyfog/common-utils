@@ -1,11 +1,11 @@
 /**
- * 
+ *
  */
 package com.baidu.unbiz.common.able;
 
 /**
  * FIXME Object?
- * 
+ *
  * @author <a href="mailto:xuchen06@baidu.com">xuc</a>
  * @version create on 2014年9月22日 上午11:50:11
  */

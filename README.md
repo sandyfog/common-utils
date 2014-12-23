@@ -37,8 +37,3 @@ common-utils.git branches and Maven version:
 - [hamcrest-core](https://code.google.com/p/hamcrest/)(1.3) 
 - hamcrest-library(1.3) 
 
-## Authors ##
-
-- [Xu Chen](https://github.com/taiyangcheng): xuchen06 AT baidu.com
-- [Qiqi Liao](https://github.com/knightliao): knightliao AT gmail.com
-
